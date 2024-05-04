@@ -1,8 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 const app = express();
+const saltRounds = 5;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
@@ -37,19 +39,37 @@ app.post("/register", async (req, res) => {
         res.send("User with email " + email + " already exists");
         return;
     }
+    bcrypt.hash(password, saltRounds, async (err, hash) => {
+        if (err) {
+            console.log("Error hasing password: " + err);
+        }
 
-    let newUser = await collection.insertOne({ email: email, username: username, password: password });
-    res.send("Successfully registered user " + username);
+        let newUser = await collection.insertOne({ email: email, username: username, password: hash });
+        res.send("Successfully registered user " + username);
+    })
+
 });
 
 app.post("/login", async (req, res) => {
     let email = req.body.email;
-    let password = req.body.password;
+    let loginPassword = req.body.password;
 
-    let user = await client.db("Recruitment").collection("users").findOne({ email: email, password: password });
-    
+    let user = await client.db("Recruitment").collection("users").findOne({ email: email });
+
+    let storedPassword = user.password;
+
     if (user) {
-        res.send("Successfully logged in as " + user.username);
+        bcrypt.compare(loginPassword, storedPassword, (err, result) => {
+            if (err) {
+                console.log("Error comparing passwords: " + err);
+                return;
+            }
+            if (result) {
+                res.send("Successfully logged in as " + user.username);
+                return;
+            }
+            res.send("Invalid email or password");
+        })
         return;
     }
     res.send("Invalid email or password");
