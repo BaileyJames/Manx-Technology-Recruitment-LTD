@@ -42,6 +42,8 @@ app.post("/register", async (req, res) => {
     bcrypt.hash(password, saltRounds, async (err, hash) => {
         if (err) {
             console.log("Error hasing password: " + err);
+            res.status(500).send('Error hashing password');
+            return;
         }
 
         let newUser = await collection.insertOne({ email: email, username: username, password: hash });
