@@ -2,6 +2,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
+const session = require('express-session');
+const passport = require('passport');
+const Strategy  = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const saltRounds = 5;
@@ -13,6 +17,25 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.MONGO_CONNECTION_STRING;
 
 const client = new MongoClient(uri);
+
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    store: MongoStore.create({
+        mongoUrl: uri,
+        dbName: "Recruitment",
+        collectionName: "sessions"
+    })
+}))
+
+app.use(passport.initialize());
+app.use(passport.session())
+
+
 
 let connection;
 
@@ -27,6 +50,15 @@ async function connect() {
 }
 
 connect();
+
+app.get("/secrets", (req, res) => {
+    console.log(req.user)
+    if (req.isAuthenticated()) {
+        res.send("You are authenticated");
+    } else {
+        res.redirect("/login")
+    }
+})
 
 app.post("/register", async (req, res) => {
     let collection = await client.db("Recruitment").collection("users");
@@ -46,40 +78,61 @@ app.post("/register", async (req, res) => {
             return;
         }
 
-        let newUser = await collection.insertOne({ email: email, username: username, password: hash });
-        res.send("Successfully registered user " + username);
+        let addUser = await collection.insertOne({ email: email, username: username, password: hash });
+        let userId = addUser.insertedId;
+
+        let newUser = await collection.findOne({ _id: userId });
+
+        req.login(newUser, (err) => {
+            if(err) {
+                console.log("Error logging in: " + err);
+            }
+            res.redirect("/secrets");
+        })
     })
 
 });
 
-app.post("/login", async (req, res) => {
-    let email = req.body.email;
-    let loginPassword = req.body.password;
-
-    let user = await client.db("Recruitment").collection("users").findOne({ email: email });
-
-    let storedPassword = user.password;
-
-    if (user) {
-        bcrypt.compare(loginPassword, storedPassword, (err, result) => {
-            if (err) {
-                console.log("Error comparing passwords: " + err);
-                return;
-            }
-            if (result) {
-                res.send("Successfully logged in as " + user.username);
-                return;
-            }
-            res.send("Invalid email or password");
-        })
-        return;
-    }
-    res.send("Invalid email or password");
-});
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/secrets",
+    failureRedirect: "/login"
+}))
 
 app.get("/", (req, res) => {
     res.send("Hello");
 });
+
+passport.use(new Strategy(async function verify(username, password, cb) {
+
+    console.log(username);
+
+    let user = await client.db("Recruitment").collection("users").findOne({ username: username });
+
+
+    if (user) {
+        let storedPassword = user.password;
+
+        bcrypt.compare(password, storedPassword, (err, result) => {
+            if (err) {
+                return cb(err);
+            }
+            if (result) {
+                return cb(null, user);
+            }
+            return cb(null, false);
+        })
+        return;
+    }
+    return cb("User not found")
+}))
+
+passport.serializeUser((user, cb) => {
+    cb(null, user);
+})
+
+passport.deserializeUser((user, cb) => {
+    cb(null, user);
+})
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
