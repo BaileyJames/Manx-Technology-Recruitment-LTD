@@ -51,13 +51,17 @@ async function connect() {
 
 connect();
 
-app.get("/secrets", (req, res) => {
-    console.log(req.user)
-    if (req.isAuthenticated()) {
-        res.send("You are authenticated");
+const ensureAuthenticated = (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next();
     } else {
         res.redirect("/login")
     }
+}
+
+app.get("/secrets", ensureAuthenticated, (req, res) => {
+    console.log(req.user)
+    res.send("You are authenticated").status(200);
 })
 
 app.post("/register", async (req, res) => {
@@ -98,8 +102,9 @@ app.post("/login", passport.authenticate("local", {
     failureRedirect: "/login"
 }))
 
-app.get("/", (req, res) => {
-    res.send("Hello");
+app.get("/jobs", async (req, res) => {
+    let jobs = await client.db("Recruitment").collection("jobs").find().toArray();  
+    res.send(jobs);
 });
 
 passport.use(new Strategy(async function verify(username, password, cb) {
