@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\Frontend1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\register.js",
+      "PackagePath": "staticwebassets\\js\\register.js"
     },
     {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\site.js",

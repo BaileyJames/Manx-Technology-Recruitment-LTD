@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gCNpRYsuYmCpdSxDz9YYswS0NVrCXQsQGuoFDHp8Fbg=",
+  "Hash": "lJ4B+/Op0J5IjpaAosenUCE1qhNBYlZm3Tf6YnCQHcU=",
   "Source": "Frontend1",
   "BasePath": "_content/Frontend1",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Frontend1.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\register.css",
+      "SourceId": "Frontend1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "BasePath": "_content/Frontend1",
+      "RelativePath": "css/register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
+    },
+    {
       "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\site.css",
       "SourceId": "Frontend1",
       "SourceType": "Discovered",
@@ -91,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\register.js",
+      "SourceId": "Frontend1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "BasePath": "_content/Frontend1",
+      "RelativePath": "js/register.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\register.js"
     },
     {
       "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\site.js",
