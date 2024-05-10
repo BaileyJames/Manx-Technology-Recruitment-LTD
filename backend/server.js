@@ -117,8 +117,14 @@ app.post("/login", passport.authenticate("local", {
 }))
 
 app.get("/jobs", async (req, res) => {
-    let jobs = await client.db("Recruitment").collection("jobs").find().toArray();  
-
+    let jobs;
+    if(req.query.desiredSkills) {
+        let skills = req.query.desiredSkills.split(" ");
+        skills = skills.map(skill => new ObjectId(skill));
+        jobs = await client.db("Recruitment").collection("jobs").find({desiredSkills: {$in: skills}}).toArray();
+    } else {
+        jobs = await client.db("Recruitment").collection("jobs").find().toArray();
+    }
 
     res.send(jobs);
 });
