@@ -1,19 +1,19 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Login";
+ViewData["Title"] = "Login";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="site.css"> 
-    
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="login-container text-center"> 
+<div class="login-container text-center">
     <h1 class="display-4">Login</h1>
     <form method="post" action="http://localhost:3000/login">
         <div class="input-group">
@@ -35,5 +35,6 @@
         </div>
     </form>
 </div>
+<script src="login.js"></script> 
 </body>
 </html>
