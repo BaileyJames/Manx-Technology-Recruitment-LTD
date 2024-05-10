@@ -12,7 +12,7 @@ const saltRounds = 5;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 const uri = process.env.MONGO_CONNECTION_STRING;
 
@@ -118,12 +118,39 @@ app.post("/login", passport.authenticate("local", {
 
 app.get("/jobs", async (req, res) => {
     let jobs = await client.db("Recruitment").collection("jobs").find().toArray();  
+
+
     res.send(jobs);
 });
 
 app.post("/add-job", ensureAdmin, async (req, res) => {
-    res.send("You have access!!").status(200);
+    const {title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
+    let collection = await client.db("Recruitment").collection("jobs");
+    let addJob = await collection.insertOne({
+        title: title,
+        description: description,
+        schedule: schedule,
+        location: location,
+        salary: salary,
+        postDate: postDate,
+        deadline: deadline,
+        desiredSkills: desiredSkills,
+        companyId: new ObjectId(companyId)
+    });
+    res.send("Successfully added " + title + " to the database.").status(200);
 })
+
+app.post("/add-company", ensureAdmin, async (req, res) => {
+    const {name, email, phone} = req.body;
+    let collection = await client.db("Recruitment").collection("companies");
+    let addCompany = await collection.insertOne({
+        name: name,
+        email: email,
+        phone: phone
+    });
+    res.send("Successfully added company: " + name + " to the database.").status(200);
+})
+
 
 passport.use(new Strategy(async function verify(username, password, cb) {
 
