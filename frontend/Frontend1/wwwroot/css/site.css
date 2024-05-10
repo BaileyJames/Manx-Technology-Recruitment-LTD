@@ -16,7 +16,99 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+/* Base body styling */
 body {
-  margin-bottom: 60px;
+  font-family: Arial, sans-serif;
+  background-color: #CAE9FF; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Styling for the login container */
+.login-container {
+  background-color: #ffffff;
+  border: 2px solid #1B4965;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+/* General styling for text inputs */
+input[type="text"], input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #1B4965; 
+  border-radius: 5px;
+  color: #343A40; 
+}
+
+/* Styling for the login button */
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #343A40; 
+  color: #CAE9FF; 
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1B4965; 
+}
+
+/* Links styling */
+a {
+  color: #1B4965;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #343A40; 
+}
+
+/* Styling for show password link (need to fix) */
+.show-password {
+  float: right;
+  font-size: small;
+  color: #343A40; 
+}
+
+html, body {
+  height: 100%; /* Ensure that the html and body elements take up full height */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Makes the main elements align in a column */
+}
+
+body > .container {
+  flex-grow: 1; /* Allows the container to expand to fill available space */
+  display: flex;
+  flex-direction: column; /* Ensures content within container is also in a column */
+  justify-content: center; /* Centers content vertically if there's space */
+}
+
+.navbar {
+  width: 100%; /* Ensures the navbar spans the full width */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+}
+
+footer {
+  width: 100%; /* Ensures footer spans the full width */
+  position: absolute; /* Keeps footer at the bottom */
+  bottom: 0;
+  background-color: #fff; /* Sets a specific background color if needed */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Subtle shadow to lift footer off the page */
+}
+
+
+footer a {
+  color: #000;
 }

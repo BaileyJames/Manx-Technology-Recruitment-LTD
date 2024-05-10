@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="site.css"> 
+</head>
+<body>
+<div class="login-container text-center"> 
+    <h1 class="display-4">Login</h1>
+    <form method="post" action="http://localhost:3000/login">
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <button type="submit">Login</button>
+        <div class="links">
+            <a href="#">Forgot your password?</a>
+            <p>Not a member? <a href="#">Sign Up!</a></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
