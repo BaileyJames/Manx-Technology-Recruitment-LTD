@@ -8,8 +8,9 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.navbar {
+  width: 100%; /* Ensures the navbar spans the full width */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
 }
 
 html {
@@ -80,35 +81,45 @@ a:hover {
   color: #343A40; 
 }
 
+/* ignore this for now its broke */
+
+
 html, body {
-  height: 100%; /* Ensure that the html and body elements take up full height */
+  height: 100%; 
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Makes the main elements align in a column */
+  flex-direction: column; 
 }
 
 body > .container {
-  flex-grow: 1; /* Allows the container to expand to fill available space */
+  flex-grow: 1; 
   display: flex;
-  flex-direction: column; /* Ensures content within container is also in a column */
-  justify-content: center; /* Centers content vertically if there's space */
+  flex-direction: column; 
+  justify-content: center;
 }
 
-.navbar {
-  width: 100%; /* Ensures the navbar spans the full width */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
-}
 
 footer {
-  width: 100%; /* Ensures footer spans the full width */
-  position: absolute; /* Keeps footer at the bottom */
+  width: 100%; 
+  position: absolute; 
   bottom: 0;
-  background-color: #fff; /* Sets a specific background color if needed */
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Subtle shadow to lift footer off the page */
+  background-color: #fff; 
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); 
 }
 
 
 footer a {
   color: #000;
+}
+
+.navbar-profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  right: 0;  /* Align dropdown to the right side */
+  left: auto;  /* Ensures dropdown alignment is right-side */
 }
