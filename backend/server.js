@@ -59,6 +59,13 @@ const ensureAuthenticated = (req, res, next) => {
     }
 }
 
+const ensureAdmin = (req, res, next) => {
+    if (req.isAuthenticated() && req.user.privilege == 1) {
+        return next();
+    }
+    res.send("You do not have access").status(403);
+}
+
 app.get("/secrets", ensureAuthenticated, (req, res) => {
     console.log(req.user)
     res.send("You are authenticated").status(200);
@@ -66,9 +73,8 @@ app.get("/secrets", ensureAuthenticated, (req, res) => {
 
 app.post("/register", async (req, res) => {
     let collection = await client.db("Recruitment").collection("users");
-    let email = req.body.email;
-    let username = req.body.username;
-    let password = req.body.password;
+    let { email, username, password, firstName, lastName, address, phone } = req.body;
+
 
     let existingUser = await collection.findOne({ email: email });
     if (existingUser) {
@@ -82,7 +88,15 @@ app.post("/register", async (req, res) => {
             return;
         }
 
-        let addUser = await collection.insertOne({ email: email, username: username, password: hash });
+        let addUser = await collection.insertOne({
+            email: email,
+            username: username,
+            password: hash,
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            phone: phone
+        });
         let userId = addUser.insertedId;
 
         let newUser = await collection.findOne({ _id: userId });
@@ -106,6 +120,10 @@ app.get("/jobs", async (req, res) => {
     let jobs = await client.db("Recruitment").collection("jobs").find().toArray();  
     res.send(jobs);
 });
+
+app.post("/add-job", ensureAdmin, async (req, res) => {
+    res.send("You have access!!").status(200);
+})
 
 passport.use(new Strategy(async function verify(username, password, cb) {
 
