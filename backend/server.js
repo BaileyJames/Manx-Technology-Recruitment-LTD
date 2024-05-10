@@ -2,6 +2,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
+const session = require('express-session');
+const passport = require('passport');
+const Strategy  = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const saltRounds = 5;
@@ -13,6 +17,25 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.MONGO_CONNECTION_STRING;
 
 const client = new MongoClient(uri);
+
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    store: MongoStore.create({
+        mongoUrl: uri,
+        dbName: "Recruitment",
+        collectionName: "sessions"
+    })
+}))
+
+app.use(passport.initialize());
+app.use(passport.session())
+
+
 
 let connection;
 
@@ -27,6 +50,19 @@ async function connect() {
 }
 
 connect();
+
+const ensureAuthenticated = (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect("/login")
+    }
+}
+
+app.get("/secrets", ensureAuthenticated, (req, res) => {
+    console.log(req.user)
+    res.send("You are authenticated").status(200);
+})
 
 app.post("/register", async (req, res) => {
     let collection = await client.db("Recruitment").collection("users");
@@ -46,40 +82,62 @@ app.post("/register", async (req, res) => {
             return;
         }
 
-        let newUser = await collection.insertOne({ email: email, username: username, password: hash });
-        res.send("Successfully registered user " + username);
+        let addUser = await collection.insertOne({ email: email, username: username, password: hash });
+        let userId = addUser.insertedId;
+
+        let newUser = await collection.findOne({ _id: userId });
+
+        req.login(newUser, (err) => {
+            if(err) {
+                console.log("Error logging in: " + err);
+            }
+            res.redirect("/secrets");
+        })
     })
 
 });
 
-app.post("/login", async (req, res) => {
-    let email = req.body.email;
-    let loginPassword = req.body.password;
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/secrets",
+    failureRedirect: "/login"
+}))
 
-    let user = await client.db("Recruitment").collection("users").findOne({ email: email });
+app.get("/jobs", async (req, res) => {
+    let jobs = await client.db("Recruitment").collection("jobs").find().toArray();  
+    res.send(jobs);
+});
 
-    let storedPassword = user.password;
+passport.use(new Strategy(async function verify(username, password, cb) {
+
+    console.log(username);
+
+    let user = await client.db("Recruitment").collection("users").findOne({ username: username });
+
 
     if (user) {
-        bcrypt.compare(loginPassword, storedPassword, (err, result) => {
+        let storedPassword = user.password;
+
+        bcrypt.compare(password, storedPassword, (err, result) => {
             if (err) {
-                console.log("Error comparing passwords: " + err);
-                return;
+                return cb(err);
             }
             if (result) {
-                res.send("Successfully logged in as " + user.username);
-                return;
+                return cb(null, user);
             }
-            res.send("Invalid email or password");
+            return cb(null, false);
         })
         return;
     }
-    res.send("Invalid email or password");
-});
+    return cb("User not found")
+}))
 
-app.get("/", (req, res) => {
-    res.send("Hello");
-});
+passport.serializeUser((user, cb) => {
+    cb(null, user);
+})
+
+passport.deserializeUser((user, cb) => {
+    cb(null, user);
+})
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
