@@ -129,6 +129,11 @@ app.get("/jobs", async (req, res) => {
     res.send(jobs);
 });
 
+app.get("/skills", async (req, res) => {
+    const skills = await client.db("Recruitment").collection("skills").find().toArray();
+    res.send(skills)
+})
+
 app.post("/add-job", ensureAdmin, async (req, res) => {
     const {title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
     let collection = await client.db("Recruitment").collection("jobs");
