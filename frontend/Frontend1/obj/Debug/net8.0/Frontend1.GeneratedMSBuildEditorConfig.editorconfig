@@ -22,12 +22,36 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQgVXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/admin-dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cYWRtaW4tZGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29tcGFueVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2tpbGxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/Job-Apply.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYi1BcHBseS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/Job_Application.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYl9BcHBsaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Jobs.cshtml]

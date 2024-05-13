@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3" style="width: 100%;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-page="/Index">Manx-Technology-Recruitment-LTD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -28,23 +28,26 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/About Us">About Us</a>
                     </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/CV">CV</a>
                     </li>
+                    }
                 </ul>
                 <div class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarProfileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!-- SVG directly used as a profile picture -->
+                            <!-- SVG Profile Picture -->
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewBox="0 0 200 200" style="enable-background:new 0 0 200 200; width: 30px; height: 30px; border-radius: 50%;" xml:space="preserve">
-                <style type="text/css">
-                    .st0 { fill: #FFFFFF; }
-                    .st1 { fill: #FFFFFF; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10; }
-                </style>
+                                <style type="text/css">
+                                    .st0 { fill: #FFFFFF; }
+                                    .st1 { fill: #FFFFFF; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10; }
+                                </style>
                                 <g>
                                     <circle class="st0" cx="97" cy="94" r="52.5"/>
                                     <path d="M97,45c27.02,0,49,21.98,49,49s-21.98,49-49,49s-49-21.98-49-49S69.98,45,97,45 M97,38c-30.93,0-56,25.07-56,56
@@ -60,11 +63,22 @@
                                 </g>
                                 <circle class="st1" cx="97" cy="80" r="20.5"/>
                                 <path class="st1" d="M120.5,106c0,12.98-10.52,23.5-23.5,23.5S73.5,118.98,73.5,106s11.02,2.5,24,2.5S120.5,93.02,120.5,106z"/>
-            </svg>
+                            </svg>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarProfileDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
+                            }
+                            else
+                            {
+                            <li class="dropdown-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
+                            </li>
+                            }
                         </ul>
                     </li>
                 </div>
@@ -73,7 +87,7 @@
     </nav>
 </header>
 
-<!-- Modal -->
+<!-- Logout Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -92,7 +106,6 @@
     </div>
 </div>
 
-
 <div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
@@ -100,7 +113,7 @@
 </div>
 
 <footer class="border-top footer text-muted">
-    <div class="container">
+    <div the="container">
         &copy; 2024 - Manx-Technology-Recruitment-LTD - <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>
 </footer>
