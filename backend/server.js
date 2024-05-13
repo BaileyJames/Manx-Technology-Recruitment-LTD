@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
+const cors = require('cors');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 const session = require('express-session');
@@ -63,7 +64,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session())
 app.use(cors());
-
 
 
 let connection;

@@ -2,18 +2,52 @@
 @model Frontend1.Pages.Jobs
 
 @{
-    Layout = null;
+Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title></title>
+    <title>Skill Checkboxes</title>
 </head>
 <body>
+<h1>Skill Checkboxes</h1>
+
 <div>
-    
+    @if (Model.Skills != null)
+    {
+    @foreach (var skill in Model.Skills)
+    {
+    <label>
+        <input type="checkbox" class="skill-checkbox" data-skill-id="@skill.Id.ToString()" /> @skill.Name
+    </label>
+    <br /> 
+    }
+    }
+    else
+    {
+    <p>No skills available.</p>
+    }
 </div>
+
+<!-- JavaScript to handle checkbox selection -->
+<script>
+    const checkboxes = document.querySelectorAll('.skill-checkbox');
+    let selectedSkillIds = '';
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', (event) => {
+            const skillId = event.target.getAttribute('data-skill-id');
+            if (event.target.checked && !selectedSkillIds.includes(skillId)) {
+                selectedSkillIds += (selectedSkillIds === '' ? '' : '+') + skillId;
+            } else if (!event.target.checked) {
+                selectedSkillIds = selectedSkillIds.split('+').filter(id => id !== skillId).join('+');
+            }
+            console.log(selectedSkillIds); // Log selected skill IDs
+            
+        });
+    });
+</script>
+<button id="searchButton">Search</button>
 </body>
 </html>

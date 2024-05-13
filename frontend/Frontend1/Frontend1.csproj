@@ -10,4 +10,13 @@
       <_ContentIncludedByDefault Remove="Identity\Pages\Login.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Account\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+      <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
+    </ItemGroup>
+
 </Project>

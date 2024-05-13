@@ -36,7 +36,9 @@ body {
   padding: 40px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   width: 350px;
+  margin: 0 auto;
 }
+
 
 /* General styling for text inputs */
 input[type="text"], input[type="password"] {
@@ -81,7 +83,6 @@ a:hover {
   color: #343A40; 
 }
 
-/* ignore this for now its broke */
 
 
 html, body {
@@ -123,3 +124,139 @@ footer a {
   right: 0;  /* Align dropdown to the right side */
   left: auto;  /* Ensures dropdown alignment is right-side */
 }
+/* ------------------------------------------------------------------------ */
+/* Register Styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.register-container {
+  background-color: #ffffff;
+  border: 2px solid #1B4965;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 350px;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.links a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+/* ------------------------------------------------------------------------ */
+/* Index Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Light background for the whole page */
+  color: #333; /* Default text color */
+}
+
+.header {
+  background-image: url('images/background.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  height: 300px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-box {
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em; /* Larger font size for the title */
+  color: #343A40; /* Dark grey color for better visibility */
+}
+
+p {
+  font-size: 1.2em;
+  color: #343A40; /* Subtitle color */
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.nav-link {
+  color: white;
+  padding: 15px 30px;
+  margin: 0 10px; /* Space between buttons */
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #3587A4; /* Darker shade on hover */
+}
+
+.nav-link i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 24px;
+}
+
+/* Specific colors for each button, adjust as needed based on your palette */
+.navigation .nav-link:nth-child(1) {
+  background-color: #62B6CB; /* Light blue */
+}
+
+.navigation .nav-link:nth-child(2) {
+  background-color: #1B4965; /* Dark blue */
+}
+
+.navigation .nav-link:nth-child(3) {
+  background-color: #CAE9FF; /* Lightest blue */
+}
+/* ------------------------------------------------------------------------ */
