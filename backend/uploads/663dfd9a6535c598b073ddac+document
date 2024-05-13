@@ -1,0 +1,12 @@
+Backend developer team has more experience with NoSQL
+
+NoSQL is driven by agile practices, which aligns with our Agile methodology, as NoSQL has a flexible schema model allowing us to change database 
+functionality quickly and easily, which is vital as we only have two weeks left to finish this.
+
+The backend web framework is Express, which is JS, and the MongoDB drivers we can use allow us to use the same language instead of using SQL and JS
+MongoDB, for instance, can be used entirely within a JavaScript ecosystem.
+
+Quicker for less advanced queries, as we won't have many if any really advanced queries.
+
+For expansion, NoSQL scales horizontally instead of vertically, which results in zero downtime and long-term cost savings compared to vertically scaling
+SQL databases. They're also more resilient due to there being backups by default

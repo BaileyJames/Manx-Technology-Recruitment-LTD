@@ -6,6 +6,33 @@ const session = require('express-session');
 const passport = require('passport');
 const Strategy  = require('passport-local').Strategy;
 const MongoStore = require('connect-mongo');
+const multer = require('multer')
+let Client = require('ssh2-sftp-client')
+let sftp = new Client();
+
+sftp.connect({
+    host: process.env.SFTP_IP,
+    port: 22,
+    username: 'expo',
+    password: process.env.SFTP_PASS
+}).then(() => {
+    return sftp.list("/home/expo/user-documents")
+}).then(data => {
+    data.forEach(file => {
+        console.log("file:", file.name, file.type)
+    })
+}).catch(err => {
+    console.log("Error:", err)
+})
+
+const sftpFile = async (localFile, remoteFile) => {
+    console.log(`Uploading ${localFile} to ${remoteFile}`);
+    try {
+        await sftp.put(localFile, remoteFile);
+    } catch (err) {
+        console.error("Error uploading file: ", err)
+    }
+}
 
 const app = express();
 const saltRounds = 5;
@@ -115,6 +142,31 @@ app.post("/login", passport.authenticate("local", {
     successRedirect: "/secrets",
     failureRedirect: "/login"
 }))
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+        const name = "hi";
+        cb(null, req.user._id + "+" + file.fieldname)
+    }
+})
+
+const uploadFile = multer({storage: storage})
+
+app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async (req, res, next) => {
+    console.log(req.file)
+
+    try {
+        await sftp.mkdir("/home/expo/user-documents/" + req.user._id, true)
+    } catch (err) {
+        console.error("Error creating directory")
+    }
+
+    await sftpFile("./uploads/" + req.user._id + "+" + req.file.fieldname, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname)
+    res.send("File uploaded").status(200);
+})
 
 app.get("/jobs", async (req, res) => {
     let jobs;
