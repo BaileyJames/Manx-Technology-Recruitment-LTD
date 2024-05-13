@@ -138,10 +138,26 @@ app.post("/register", async (req, res) => {
 
 });
 
-app.post("/login", passport.authenticate("local", {
-    successRedirect: "/secrets",
-    failureRedirect: "/login"
-}))
+app.post("/login", (req, res, next) => {
+    passport.authenticate("local", (err, user) => {
+        if(!user) {
+            return res.status(401).send("Invalid username or password");
+        }
+
+        if (err) {
+            return res.status(500).send("Error authenticating user");
+        }
+       
+        req.login(user, (err) => {
+            if (err) {
+                return res.status(500).send("Error logging in");
+            }
+
+            delete req.user.password;
+            return res.json(user).status(200);     
+        })
+    })(req, res, next);
+})
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -166,6 +182,31 @@ app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async
 
     await sftpFile("./uploads/" + req.user._id + "+" + req.file.fieldname, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname)
     res.send("File uploaded").status(200);
+})
+
+app.get("/documents/:filename", ensureAuthenticated, async (req, res) => {
+    const filePath = "/home/expo/user-documents/" + req.user._id + "/" + req.params.filename;
+    
+    try {
+        const stream = await sftp.createReadStream(filePath);
+
+        res.setHeader('Content-disposition', 'attachment; filename=' + req.params.filename);
+        res.setHeader('Content-type', 'application/octet-stream');
+
+        stream.pipe(res);
+    } catch (err) {
+        console.error("Error reading file: ", err);
+        res.send("Error reading file").status(500);
+    }
+})
+
+app.get("/documents", ensureAuthenticated, async (req, res) => {
+    let files = await sftp.list("/home/expo/user-documents/" + req.user._id);
+    let newFiles = []
+    files.map(file => {
+        console.log(file)
+    });
+    res.send(newFiles).status(200);
 })
 
 app.get("/jobs", async (req, res) => {
