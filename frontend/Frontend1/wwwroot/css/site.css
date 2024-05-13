@@ -36,7 +36,9 @@ body {
   padding: 40px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   width: 350px;
+  margin: 0 auto;
 }
+
 
 /* General styling for text inputs */
 input[type="text"], input[type="password"] {
@@ -81,7 +83,6 @@ a:hover {
   color: #343A40; 
 }
 
-/* ignore this for now its broke */
 
 
 html, body {
@@ -136,12 +137,13 @@ body, html {
 }
 
 .register-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
+  background-color: #ffffff;
+  border: 2px solid #1B4965;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 350px;
+  margin: 0 auto;
 }
 
 .input-group {

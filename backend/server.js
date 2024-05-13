@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const cors = require('cors');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 const session = require('express-session');
@@ -61,7 +62,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session())
-
+app.use(cors());
 
 
 let connection;
@@ -82,7 +83,7 @@ const ensureAuthenticated = (req, res, next) => {
     if(req.isAuthenticated()){
         return next();
     } else {
-        res.redirect("/login")
+        res.status(401).json({ error: 'User is not authenticated' });
     }
 }
 
