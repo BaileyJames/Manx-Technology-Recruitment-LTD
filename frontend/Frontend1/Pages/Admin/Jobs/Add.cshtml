@@ -1,0 +1,48 @@
+﻿@page
+@model Frontend1.Pages.Admin.Jobs.Add
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" name="title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="schedule">Schedule</label>
+        <input id="schedule" name="schedule" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" name="location" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="postDate">Post Date</label>
+        <input id="postDate" name="postDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input id="deadline" name="deadline" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="desiredSkills">Desired Skills</label>
+        <input id="desiredSkills" name="desiredSkills" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="industry">Industry</label>
+        <input id="industry" name="industry" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Job</button>
+</form>
+
+    <script src="~/js/jobs/add-job.js"></script>
+}

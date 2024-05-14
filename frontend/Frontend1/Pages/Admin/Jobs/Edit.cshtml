@@ -1,0 +1,49 @@
+﻿@page
+@model Frontend1.Pages.Admin.Jobs.Edit
+@{
+Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form>
+    <input type="hidden" id="id" value="@Model.JobId" />
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" name="title" class="form-control" value="@Model.JobTitle" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control">@Model.JobDescription</textarea>
+    </div>
+    <div class="form-group">
+        <label for="schedule">Schedule</label>
+        <input id="schedule" name="schedule" class="form-control" value="@Model.JobSchedule" />
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" name="location" class="form-control" value="@Model.JobLocation" />
+    </div>
+    <div class="form-group">
+        <label for="postDate">Post Date</label>
+        <input id="postDate" name="postDate" class="form-control" value="@Model.JobPostDate" />
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" class="form-control" value="@Model.JobSalary" />
+    </div>
+    <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input id="deadline" name="deadline" class="form-control" value="@Model.JobDeadline" />
+    </div>
+    <div class="form-group">
+        <label for="desiredSkills">Desired Skills</label>
+        <input id="desiredSkills" name="desiredSkills" class="form-control" value="@Model.JobDesiredSkills" />
+    </div>
+    <div class="form-group">
+        <label for="industry">Industry</label>
+        <input id="industry" name="industry" class="form-control" value="@Model.JobIndustry" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<script src="~/js/jobs/edit-job.js"></script>
+}
