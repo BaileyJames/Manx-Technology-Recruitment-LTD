@@ -1,1 +1,30 @@
-﻿
+﻿@page
+@model Frontend1.Pages.Admin.Jobs.Index
+@{
+Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/site.css">
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Schedule</th>
+        <th>Location</th>
+        <th>Post Date</th>
+        <th>Salary</th>
+        <th>Deadline</th>
+        <th>Desired Skills</th>
+        <th>Industry</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="jobs-list">
+    <!-- JS Should populate this  -->
+    </tbody>
+</table>
+
+
+<script src="~/js/jobs/index-job.js"></script>
+}
