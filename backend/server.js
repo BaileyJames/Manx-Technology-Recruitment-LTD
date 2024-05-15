@@ -71,6 +71,7 @@ app.use(cors(
 ));
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', process.env.LOCALHOST);
+    next();
 })
 let connection;
 
