@@ -275,6 +275,7 @@ app.get("/skills", async (req, res) => {
 })
 
 app.post("/add-job", ensureAdmin, async (req, res) => {
+    console.log(req.body)
     const {title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
     let collection = await client.db("Recruitment").collection("jobs");
     let addJob = await collection.insertOne({
