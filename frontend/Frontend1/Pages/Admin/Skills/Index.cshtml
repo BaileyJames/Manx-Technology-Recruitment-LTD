@@ -2,18 +2,26 @@
 @model Frontend1.Pages.Skills.Index
 
 @{
-    Layout = null;
+Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+<link rel="stylesheet" href="~/css/site.css">
+<div class="container mt-5">
+    <main>
+        <h1>Manage Skills</h1>
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-primary" href="/Admin/Skills/Add">Add Skill</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody id="skills-list">
+            </tbody>
+        </table>
+    </main>
 </div>
-</body>
-</html>
+
+<script src="~/js/skills/index-skill.js"></script>

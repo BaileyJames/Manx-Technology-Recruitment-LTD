@@ -263,7 +263,13 @@ app.get("/jobs", async (req, res) => {
 });
 
 app.get("/skills", async (req, res) => {
-    const skills = await client.db("Recruitment").collection("skills").find().toArray();
+    //const skills = await client.db("Recruitment").collection("skills").find().toArray();
+    let skills
+     if(req.query._id) {
+        skills = await client.db("Recruitment").collection("skills").findOne({_id: new ObjectId(req.query._id)});
+     } else {
+        skills = await client.db("Recruitment").collection("skills").find().toArray();
+    }
     res.send(skills)
 })
 
