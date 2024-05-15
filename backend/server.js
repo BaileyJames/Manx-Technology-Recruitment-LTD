@@ -218,22 +218,28 @@ app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async
         console.error("Error creating directory")
     }
 
-    await sftpFile("./uploads/" + req.user._id + "." + fileExtension, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname + "." + fileExtension)
+    try {
+        await sftpFile("./uploads/" + req.user._id + "." + fileExtension, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname + "." + fileExtension)
+    } catch (err) {
+        console.error("Error reading file:", err)
+    }
     res.send("File uploaded").status(200);
 })
 
-app.get("/documents/:filename", ensureAuthenticated, async (req, res) => {
-    const filePath = "/home/expo/user-documents/" + req.user._id + "/" + req.params.filename;
+app.get("/documents/:index", ensureAuthenticated, async (req, res) => {
+    const dirPath = "/home/expo/user-documents/" + req.user._id;
     
     try {
-        const stream = await sftp.createReadStream(filePath);
+        const fileList = await sftp.list(dirPath);
+        console.log("AAAA", fileList)
 
-        res.setHeader('Content-disposition', 'attachment; filename=' + req.params.filename);
+        const stream = await sftp.createReadStream(dirPath + "/" + fileList[req.params.index].name);
+        res.setHeader('Content-disposition', 'attachment; filename=' + fileList[req.params.index].name);
         res.setHeader('Content-type', 'application/octet-stream');
-
         stream.pipe(res);
+
     } catch (err) {
-        console.error("Error reading file: ", err);
+        console.error("Error reading file:", err)
         res.send("Error reading file").status(500);
     }
 })
@@ -243,6 +249,7 @@ app.get("/documents", ensureAuthenticated, async (req, res) => {
     let newFiles = []
     files.map(file => {
         console.log(file)
+        newFiles.push(file.name);
     });
     res.send(newFiles).status(200);
 })
