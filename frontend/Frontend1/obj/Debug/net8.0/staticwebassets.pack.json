@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\background.jpeg"
     },
     {
+      "Id": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\jobs.js",
+      "PackagePath": "staticwebassets\\js\\jobs.js"
+    },
+    {
       "Id": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },

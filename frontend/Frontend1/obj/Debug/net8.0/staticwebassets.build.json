@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XwF9q4pA/zw1HogHdDG1Y/FGpGT0RJ8xP/XTAtyZD7A=",
+  "Hash": "z/k1AGbsa/bC4hfr5s4c82wNf93PYqvsPa+IbnpKWHk=",
   "Source": "Frontend1",
   "BasePath": "_content/Frontend1",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\background.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\jobs.js",
+      "SourceId": "Frontend1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "BasePath": "_content/Frontend1",
+      "RelativePath": "js/jobs.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jobs.js"
     },
     {
       "Identity": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\login.js",

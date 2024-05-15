@@ -8,94 +8,22 @@
 <head>
     <title>Skill Checkboxes</title>
 </head>
-<body>
+<body onload="on_Load()">
     <h1>Skill Filter</h1>
 
-    <div>
-        @if (Model.Skills != null)
-        {
-            @foreach (var skill in Model.Skills)
-            {
-                <label>
-                    <input type="checkbox" class="skill-checkbox" skillId="@skill.Id.ToString()" /> @skill.Name
-                </label>
-                <br />
-            }
-            <form asp-page-handler="Search" method="post">
-                <input type="hidden" id="SkillIds" name="SkillIds" value="" />
-                <button class="btn btn-default" onclick="submitForm()">Search</button>
-            </form>
-        }
-        else
-        {
-            <p>No skills available.</p>
-        }
+    <div id="skillLabels">
+
     </div>
 
-    <div>
-        @if (Model.JobListings != null)
-        {
-            <ul>
-                @foreach (var job in Model.JobListings)
-                {
-                    <li>
-                        <strong>@job.title</strong><br />
-                        <span>@job.description</span><br />
-                        <span>@job.schedule</span><br />
-                        <span>@job.location</span><br />
-                        <span>@job.salary</span><br />
-                        <span>@job.postDate</span><br />
-                        <span>@job.deadline</span><br />
-                        @foreach (var desiredSkill in job.desiredSkills)
-                        {
-                            var skillName = "";
-                            @foreach (var skill in Model.Skills)
-                            {
-                                if (skill.Id == desiredSkill)
-                                {
-                                    skillName = skill.Name;
-                                }
-                            }
-                            <span>@skillName</span><br />
-                        }
-                    </li>
-                }
-            </ul>
-        }
-        else
-        {
-            <p>No jobs found.</p>
-        }
+        <div>
+            <input type="hidden" id="SkillIds" name="SkillIds" value="" />
+            <button class="btn btn-default" onclick="submitForm()">Search</button>
+        </div>
+
+    <div id="jobLabels">
+
     </div>
 
-    <script>
-        const checkboxes = document.querySelectorAll('.skill-checkbox');
-        let skillIds = '';
-
-        checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', (event) => {
-                const skillId = event.target.getAttribute('skillId');
-                if (event.target.checked) {
-                    if (skillIds == '')
-                    {
-                        skillIds += skillId;
-                    }
-                    else
-                    { 
-                        skillIds += "+" + skillId;
-                    }
-                } else if (!event.target.checked) {
-                    splitIds = skillIds.split('+');
-                    splitIds = splitIds.filter(id => id !== skillId);
-                    skillIds = splitIds.join('+');
-                }
-            });
-        });
-
-
-        function submitForm() {
-            document.getElementById('SkillIds').value = skillIds;
-        }
-    </script>
+    <script src="~/js/jobs.js"></script>
 </body>
 </html>
