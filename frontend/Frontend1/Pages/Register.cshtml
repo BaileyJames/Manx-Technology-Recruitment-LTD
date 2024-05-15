@@ -10,12 +10,12 @@ ViewData["Title"] = "Register";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
 <div class="register-container text-center">
     <h1 class="display-4">Register</h1>
-    <form id="registrationForm" method="post" action="http://localhost:3000/register">
+    <form>
         <div class="input-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Choose a username">
@@ -32,15 +32,31 @@ ViewData["Title"] = "Register";
             <label for="password2">Confirm Password:</label>
             <input type="password" id="password2" placeholder="Confirm your password">
         </div>
-        <button type="button" onclick="submitForm()">Register</button>
+
+            <div class="input-group">
+                <label>Captcha:</label>
+                @{
+                    Random rnd = new Random();
+                    int randomNum = rnd.Next(1, 11);
+                    string imageSource = "~/images/captcha/" + @randomNum + ".png";
+                    <img src="@Url.Content(imageSource)" width="300" height="150" />
+
+                    <input type="text" id="@randomNum" name="captcha" placeholder="Enter the text shown">
+                }
+            </div>
+
+
+        <button type="submit">Register</button>
         <div class="links">
             <a href="/login">Already a member? Log In</a>
         </div>
     </form>
 
-    <script>
+    @* <script>
 
         function validateRegistration(form) {
+            
+
             const name = form.username.value;
             const email = form.email.value;
             const pass1 = form.password1.value;
@@ -71,7 +87,8 @@ ViewData["Title"] = "Register";
             form.submit();
             
         }
-    </script>
+    </script> *@
+    <script src="/js/register.js"></script>
 </div>
 </body>
 </html>

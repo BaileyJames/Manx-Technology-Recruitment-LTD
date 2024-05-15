@@ -19,19 +19,32 @@ ViewData["Title"] = "Login";
         Successfully logged in!
     </div>
     <h1 class="display-4">Login</h1>
-    <form>
+        <form>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+
         <div class="input-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username">
+                <label>Captcha:</label>
+                @{
+                    Random rnd = new Random();
+                    int randomNum = rnd.Next(1, 11);
+                    string imageSource = "~/images/captcha/" + @randomNum + ".png";
+                    <img src="@Url.Content(imageSource)" width="300" height="150" />
+
+                    <input type="text" id="@randomNum" name="captcha" placeholder="Enter the text shown">
+                }
         </div>
-        <div class="input-group">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" placeholder="Enter your email">
-        </div>
-        <div class="input-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-        </div>
+
         <button type="submit">Login</button>
         <div class="links">
             <a href="#">Forgot your password?</a>
