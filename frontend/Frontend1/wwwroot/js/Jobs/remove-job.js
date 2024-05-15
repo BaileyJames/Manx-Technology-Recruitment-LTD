@@ -8,7 +8,7 @@
     }
 
     try {
-        const response = await fetch(`/api/jobs/${id}`, {
+        const response = await fetch(`http://localhost:3000/Jobs`, {
             method: 'DELETE',
         });
 
@@ -33,7 +33,7 @@ async function loadJob() {
     }
 
     try {
-        const response = await fetch(`/api/jobs/${id}`);
+        const response = await fetch(`http://localhost:3000/Jobs`);
 
         if (response.ok) {
             const job = await response.json();
