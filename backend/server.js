@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const {body, validationResult} = require('express-validator');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
@@ -99,45 +100,61 @@ app.get("/secrets", ensureAuthenticated, (req, res) => {
     res.send("You are authenticated").status(200);
 })
 
-app.post("/register", async (req, res) => {
-    let collection = await client.db("Recruitment").collection("users");
-    let { email, username, password, firstName, lastName, address, phone } = req.body;
+app.post("/register",
+    body('email').isEmail().normalizeEmail(),
+    body('username').isLength({min: 6}),
+    body('password').isLength({min: 12}).withMessage('Password must be at least 12 characters')
+        .matches(/[a-z]/).withMessage('Password must contain a lowercase letter')
+        .matches(/[A-Z]/).withMessage('Password must contain an uppercase letter')
+        .matches(/[0-9]/).withMessage('Password must contain a number')
+        .matches(/[!@#$%^&*]/).withMessage('Password must contain a special character'),
+    async(req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next()
+    },
+    async (req, res) => {
+    
+        let collection = await client.db("Recruitment").collection("users");
+        let { email, username, password, firstName, lastName, address, phone } = req.body;
 
 
-    let existingUser = await collection.findOne({ email: email });
-    if (existingUser) {
-        res.send("User with email " + email + " already exists");
-        return;
-    }
-    bcrypt.hash(password, saltRounds, async (err, hash) => {
-        if (err) {
-            console.log("Error hasing password: " + err);
-            res.status(500).send('Error hashing password');
+        let existingUser = await collection.findOne({ email: email });
+        if (existingUser) {
+            res.send("User with email " + email + " already exists");
             return;
         }
-
-        let addUser = await collection.insertOne({
-            email: email,
-            username: username,
-            password: hash,
-            firstName: firstName,
-            lastName: lastName,
-            address: address,
-            phone: phone
-        });
-        let userId = addUser.insertedId;
-
-        let newUser = await collection.findOne({ _id: userId });
-
-        req.login(newUser, (err) => {
-            if(err) {
-                console.log("Error logging in: " + err);
+        bcrypt.hash(password, saltRounds, async (err, hash) => {
+            if (err) {
+                console.log("Error hasing password: " + err);
+                res.status(500).send('Error hashing password');
+                return;
             }
-            res.redirect("/secrets");
-        })
-    })
 
-});
+            let addUser = await collection.insertOne({
+                email: email,
+                username: username,
+                password: hash,
+                firstName: firstName,
+                lastName: lastName,
+                address: address,
+                phone: phone
+            });
+            let userId = addUser.insertedId;
+
+            let newUser = await collection.findOne({ _id: userId });
+
+            req.login(newUser, (err) => {
+                if(err) {
+                    console.log("Error logging in: " + err);
+                }
+                res.redirect("/secrets");
+            })
+        })
+    }
+);
 
 app.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user) => {
@@ -160,13 +177,23 @@ app.post("/login", (req, res, next) => {
     })(req, res, next);
 })
 
+app.post("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if(err) {
+            console.log("Error logging out: ", err);
+            return next(err);
+        }
+        res.send("User logged out").status(200);
+    });
+})
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        const name = "hi";
-        cb(null, req.user._id + "+" + file.fieldname)
+        const fileExtension = file.originalname.split(".")[1];
+        cb(null, req.user._id + "." + fileExtension)
     }
 })
 
@@ -175,13 +202,15 @@ const uploadFile = multer({storage: storage})
 app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async (req, res, next) => {
     console.log(req.file)
 
+    let fileExtension = req.file.originalname.split(".")[1];
+
     try {
         await sftp.mkdir("/home/expo/user-documents/" + req.user._id, true)
     } catch (err) {
         console.error("Error creating directory")
     }
 
-    await sftpFile("./uploads/" + req.user._id + "+" + req.file.fieldname, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname)
+    await sftpFile("./uploads/" + req.user._id + "." + fileExtension, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname + "." + fileExtension)
     res.send("File uploaded").status(200);
 })
 
