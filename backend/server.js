@@ -69,8 +69,9 @@ app.use(cors(
         credentials: true
     }
 ));
-
-
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', process.env.LOCALHOST);
+})
 let connection;
 
 async function connect() {
