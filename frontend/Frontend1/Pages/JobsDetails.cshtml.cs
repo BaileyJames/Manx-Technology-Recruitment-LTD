@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Frontend1.Pages.Skills;
+namespace Frontend1.Pages;
 
-public class Index : PageModel
+public class JobsDetails : PageModel
 {
     public void OnGet()
     {

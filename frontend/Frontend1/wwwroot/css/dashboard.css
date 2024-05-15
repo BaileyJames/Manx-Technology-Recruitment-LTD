@@ -1,0 +1,188 @@
+﻿/* General styling for the dashboard */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #CAE9FF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Main dashboard styling */
+main {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+main h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #343A40;
+    text-align: center;
+}
+
+/* Dashboard links */
+.dashboard-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dashboard-links a {
+    background-color: #1B4965;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1 1 30%;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+.dashboard-links a:hover {
+    background-color: #123456;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #1B4965;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1B4965;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #343A40;
+    color: #CAE9FF;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1B4965;
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: #343A40;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+footer a {
+    color: #000;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Profile pic in navbar */
+.navbar-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.btn-primary {
+    background-color: #1B4965;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #123456;
+}

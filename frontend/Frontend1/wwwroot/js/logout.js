@@ -2,7 +2,7 @@
 
 function handleLogout() {
     // Assuming server-side route clears the session and cookies
-    fetch('/Account/Logout', { method: 'POST' })
+    fetch('http://localhost:3000/logout', { method: 'POST' })
         .then(response => {
             // Check if logout was successful based on the response
             if (response.ok) {

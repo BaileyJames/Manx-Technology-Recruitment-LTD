@@ -1,0 +1,57 @@
+﻿@page
+@model Frontend1.Pages.JobsDetails
+
+@{
+    Layout = null;
+}
+
+@{
+Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 id="job-title"></h1>
+
+    <h2>Apply for this job</h2>
+    <form id="application-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="coverLetter">Cover Letter</label>
+            <textarea id="coverLetter" name="CoverLetter" class="form-control" placeholder="Enter your text here"></textarea>
+            <div class="mt-2">OR</div>
+            <input type="file" id="coverLetterFile" name="CoverLetterFile" class="form-control mt-2" />
+        </div>
+
+        <div class="form-group mt-4">
+            <label for="cv">CV</label>
+            <div class="mt-2">
+                <button type="button" class="btn btn-outline-primary" onclick="useUploadedCV()">Use Uploaded CV</button>
+            </div>
+            <div class="mt-2">OR</div>
+            <input type="file" id="cvFile" name="CVFile" class="form-control mt-2" />
+        </div>
+
+        <div class="form-group mt-4">
+            <label for="otherFiles">Other Files</label>
+            <div class="mt-2">
+                <button type="button" class="btn btn-outline-primary" onclick="selectUploadedFiles()">Select uploaded files</button>
+            </div>
+            <div class="mt-2">OR</div>
+            <input type="file" id="otherFiles" name="OtherFiles" class="form-control mt-2" multiple />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Apply</button>
+    </form>
+</div>
+
+<script src="~/js/job-details.js"></script>
+</body>
+</html>

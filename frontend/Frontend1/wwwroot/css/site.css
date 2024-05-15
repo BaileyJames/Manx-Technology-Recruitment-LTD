@@ -8,24 +8,31 @@ html {
   }
 }
 
-.navbar {
-  width: 100%; /* Ensures the navbar spans the full width */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+a:hover {
+  text-decoration: underline;
 }
 
 html {
   position: relative;
   min-height: 100%;
 }
+
+body {
+  margin-bottom: 60px;
+  background-color: #F8F0E5;
+}
+
+.navbar {
+  font-family: "KG Blank Space Solid", sans-serif;
+}
+
+
 /* Base body styling */
 body {
   font-family: Arial, sans-serif;
-  background-color: #CAE9FF; 
-  display: flex;
-  justify-content: center;
+  background-color: #CAE9FF;
+  justify-content: safe;
   align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
 /* Styling for the login container */
@@ -194,29 +201,37 @@ body, html {
 }
 
 .header {
-  background-image: url('images/background.jpeg'); 
+  background-image: url('images/background.jpeg'); /* Add the background image */
   background-size: cover;
   background-position: center;
   height: 300px; /* Adjust the height as needed */
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; /* Ensure positioning for title-box */
 }
 
 .title-box {
   text-align: center;
   width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute; /* Position title-box in the center of the header */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
   margin: 0;
   font-size: 2.5em; /* Larger font size for the title */
-  color: #343A40; /* Dark grey color for better visibility */
+  color: #ffffff; /* White color for better visibility */
 }
 
 p {
   font-size: 1.2em;
-  color: #343A40; /* Subtitle color */
+  color: #ffffff; /* White color for better visibility */
 }
 
 .navigation {
@@ -259,4 +274,6 @@ p {
 .navigation .nav-link:nth-child(3) {
   background-color: #CAE9FF; /* Lightest blue */
 }
+
 /* ------------------------------------------------------------------------ */
+
