@@ -139,9 +139,15 @@ function createJobLabels(jobArray) {
         else {
             property.appendChild(document.createTextNode("Desired Skills: None"))
         }
-
+        property.appendChild(document.createElement("br"))
         list.appendChild(property)
 
+
+        let button = document.createElement("button")
+        button.className = "btn btn-default";
+        button.onclick = function () { location.href = '/' + jobArray[i]._id }
+        button.textContent = "More Info"
+        list.appendChild(button)
 
         jobLabels.appendChild(list)
     }
