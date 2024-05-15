@@ -245,7 +245,9 @@ app.get("/jobs", async (req, res) => {
         let skills = req.query.desiredSkills.split(" ");
         skills = skills.map(skill => new ObjectId(skill));
         jobs = await client.db("Recruitment").collection("jobs").find({desiredSkills: {$in: skills}}).toArray();
-    } else {
+    } else if(req.query._id) {
+        jobs = await client.db("Recruitment").collection("jobs").findOne({_id: new ObjectId(req.query._id)});
+     } else {
         jobs = await client.db("Recruitment").collection("jobs").find().toArray();
     }
 
@@ -274,6 +276,43 @@ app.post("/add-job", ensureAdmin, async (req, res) => {
     res.send("Successfully added " + title + " to the database.").status(200);
 })
 
+app.put("/update-job", ensureAdmin, async (req, res) => {
+    const {_id, title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
+    let collection = await client.db("Recruitment").collection("jobs");
+    let updateJob = await collection.updateOne(
+        {_id: new ObjectId(_id)},
+        {
+            $set: {
+                title: title,
+                description: description,
+                schedule: schedule,
+                location: location,
+                salary: salary,
+                postDate: postDate,
+                deadline: deadline,
+                desiredSkills: desiredSkills,
+                companyId: new ObjectId(companyId)
+            }
+        }
+    )
+    if (updateJob.modifiedCount == 1) {
+        res.send("Successfully updated " + title).status(200);
+    } else {
+        res.send("Error updating job, job either doesn't exist or no changes were created").status(500);
+    }
+})
+
+app.delete("/delete-job", ensureAdmin, async (req, res) => {
+    const _id = req.body._id;
+    let collection = await client.db("Recruitment").collection("jobs");
+    let deleteJob = await collection.deleteOne({_id: new ObjectId(_id)});
+    if (deleteJob.deletedCount == 1) {
+        res.send("Successfully deleted job").status(200);
+    } else {
+        res.send("Error deleting job, job either doesn't exist or no changes were created").status(500);
+    }
+})
+
 app.post("/add-company", ensureAdmin, async (req, res) => {
     const {name, email, phone} = req.body;
     let collection = await client.db("Recruitment").collection("companies");
@@ -285,6 +324,71 @@ app.post("/add-company", ensureAdmin, async (req, res) => {
     res.send("Successfully added company: " + name + " to the database.").status(200);
 })
 
+app.put("/update-company", ensureAdmin, async (req, res) => {
+    const {_id, name, email, phone} = req.body;
+    let collection = await client.db("Recruitment").collection("companies");
+    let updateCompany = await collection.updateOne(
+        {_id: new ObjectId(_id)},
+        {
+            $set: {
+                name: name,
+                email: email,
+                phone: phone
+            }
+        }
+    )
+    if (updateCompany.modifiedCount == 1) {
+        res.send("Successfully updated " + name).status(200);
+    } else {
+        res.send("Error updating company, it either doesn't exist or no changes were created").status(500);
+    }
+})
+
+app.delete("/delete-company", ensureAdmin, async (req, res) => {
+    const _id = req.body._id;
+    let collection = await client.db("Recruitment").collection("companies");
+    let deleteCompany = await collection.deleteOne({_id: new ObjectId(_id)});
+    if (deleteCompany.deletedCount == 1) {
+        res.send("Successfully deleted company").status(200);
+    } else {
+        res.send("Error deleting company, it either doesn't exist or no changes were created").status(500);
+    }
+})
+
+app.post("/add-skill", ensureAdmin, async (req, res) => {
+    const {name, description} = req.body;
+    let collection = await client.db("Recruitment").collection("skills");
+    let addSkill = await collection.insertOne({
+        name: name,
+        description: description
+    });
+    res.send("Successfully added skill: " + name + " to the database.").status(200);
+})
+
+app.put("/update-skill", ensureAdmin, async (req, res) => {
+    const {_id, name, description} = req.body;
+    let collection = await client.db("Recruitment").collection("skills");
+    let updateSkill = await collection.updateOne(
+        {_id: new ObjectId(_id)},
+        {
+            $set: {
+                name: name,
+                description: description
+            }
+        }
+    )
+})
+
+app.delete("/delete-skill", ensureAdmin, async (req, res) => {
+    const _id = req.body._id;
+    let collection = await client.db("Recruitment").collection("skills");
+    let deleteSkill = await collection.deleteOne({_id: new ObjectId(_id)});
+    if (deleteSkill.deletedCount == 1) {
+        res.send("Successfully deleted skill").status(200);
+    } else {
+        res.send("Error deleting skill, it either doesn't exist or no changes were created").status(500);
+    }
+})
 
 passport.use(new Strategy(async function verify(username, password, cb) {
 
