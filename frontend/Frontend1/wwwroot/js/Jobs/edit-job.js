@@ -1,78 +1,75 @@
-﻿document.querySelector('#edit-job-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    const id = document.querySelector('#id').value.trim();
-
-    const jobData = {
-        title: document.querySelector('#title').value.trim(),
-        description: document.querySelector('#description').value.trim(),
-        schedule: document.querySelector('#schedule').value.trim(),
-        location: document.querySelector('#location').value.trim(),
-        postDate: document.querySelector('#postDate').value.trim(),
-        salary: document.querySelector('#salary').value.trim(),
-        deadline: document.querySelector('#deadline').value.trim(),
-        desiredSkills: document.querySelector('#desiredSkills').value.split(',').map(skill => skill.trim()), 
-        industry: document.querySelector('#industry').value.trim()
-    };
-
-    // validation
-    for (const [key, value] of Object.entries(jobData)) {
-        if (!value) {
-            alert(`Please fill in the ${key} field.`);
-            return;
-        }
-    }
+﻿document.addEventListener('DOMContentLoaded', async function() {
+    const jobId = document.getElementById('id').value;
 
     try {
-        const response = await fetch(`http://localhost:3000/Jobs`, {
+        const response = await fetch(`http://localhost:3000/jobs/${jobId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch job details');
+        }
+
+        const jobData = await response.json();
+
+        document.getElementById('title').value = jobData.title || '';
+        document.getElementById('description').value = jobData.description || '';
+        document.getElementById('schedule').value = jobData.schedule || '';
+        document.getElementById('location').value = jobData.location || '';
+        document.getElementById('postDate').value = jobData.postDate ? jobData.postDate.split('T')[0] : '';
+        document.getElementById('salary').value = jobData.salary || '';
+        document.getElementById('deadline').value = jobData.deadline ? jobData.deadline.split('T')[0] : '';
+        document.getElementById('desiredSkills').value = jobData.desiredSkills ? jobData.desiredSkills.join(', ') : '';
+        document.getElementById('companyId').value = jobData.companyId || '';
+    } catch (error) {
+        console.error('Error loading job details:', error);
+        document.getElementById('response-message').innerText = 'Error loading job details';
+        document.getElementById('response-message').style.color = 'red';
+    }
+});
+
+document.getElementById('update-job-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const jobData = {};
+    formData.forEach((value, key) => {
+        if (key === 'desiredSkills') {
+            jobData[key] = value.split(',').map(skill => skill.trim());
+        } else {
+            jobData[key] = value;
+        }
+    });
+
+    try {
+        const response = await fetch('http://localhost:3000/update-job', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(jobData)
+            body: JSON.stringify(jobData),
+            credentials: 'include',
         });
 
+        const message = await response.text();
+        const responseMessageElement = document.getElementById('response-message');
+
         if (response.ok) {
-            window.location.href = '/Admin/Jobs/Index';
+            responseMessageElement.innerText = message;
+            responseMessageElement.style.color = 'green';
         } else {
-            const error = await response.json();
-            alert(`Failed to update job: ${error.message || response.statusText}`);
+            responseMessageElement.innerText = message;
+            responseMessageElement.style.color = 'red';
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while updating the job. Please try again later.');
+        console.error('Error updating job:', error);
+        document.getElementById('response-message').innerText = 'An error occurred while updating the job.';
+        document.getElementById('response-message').style.color = 'red';
     }
 });
-
-async function loadJob() {
-    const id = document.querySelector('#id').value.trim();
-
-    if (!id) {
-        alert('No job ID found.');
-        return;
-    }
-
-    try {
-        const response = await fetch(`http://localhost:3000/Jobs`);
-
-        if (response.ok) {
-            const job = await response.json();
-            document.querySelector('#title').value = job.title;
-            document.querySelector('#description').value = job.description;
-            document.querySelector('#schedule').value = job.schedule;
-            document.querySelector('#location').value = job.location;
-            document.querySelector('#postDate').value = job.postDate;
-            document.querySelector('#salary').value = job.salary;
-            document.querySelector('#deadline').value = job.deadline;
-            document.querySelector('#desiredSkills').value = job.desiredSkills.join(', '); 
-            document.querySelector('#industry').value = job.industry;
-        } else {
-            const error = await response.json();
-            alert(`Failed to load job: ${error.message || response.statusText}`);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while loading the job. Please try again later.');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', loadJob);
