@@ -4,27 +4,33 @@
 Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/css/site.css">
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Schedule</th>
-        <th>Location</th>
-        <th>Post Date</th>
-        <th>Salary</th>
-        <th>Deadline</th>
-        <th>Desired Skills</th>
-        <th>Industry</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody id="jobs-list">
-    <!-- JS Should populate this  -->
-    </tbody>
-</table>
-
+<div class="container mt-5">
+    <main>
+        <h1>Manage Jobs</h1>
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-primary" href="/Admin/Jobs/Add">Add Job</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Schedule</th>
+                <th>Location</th>
+                <th>Post Date</th>
+                <th>Salary</th>
+                <th>Deadline</th>
+                <th>Desired Skills</th>
+                <th>Industry</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="jobs-list">
+            <!-- Jobs will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </main>
+</div>
 
 <script src="~/js/jobs/index-job.js"></script>
-}
+

@@ -172,3 +172,17 @@ footer a:hover {
     right: 0;
     left: auto;
 }
+
+.btn-primary {
+    background-color: #1B4965;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #123456;
+}

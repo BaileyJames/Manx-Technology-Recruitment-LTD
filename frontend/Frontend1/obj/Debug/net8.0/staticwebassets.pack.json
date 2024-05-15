@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\Jobs\\remove-job.js"
     },
     {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
+      "PackagePath": "staticwebassets\\js\\job-details.js"
+    },
+    {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },

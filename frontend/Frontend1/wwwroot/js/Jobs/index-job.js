@@ -1,40 +1,36 @@
-﻿async function loadJobs() {
+﻿document.addEventListener('DOMContentLoaded', (event) => {
+    loadJobs().catch(error => {
+        console.error('Failed to load jobs:', error);
+        alert('Failed to load jobs');
+    });
+});
+
+async function loadJobs() {
     try {
-        const response = await fetch('/api/jobs');
-
-        if (response.ok) {
-            const jobs = await response.json();
-            const jobsList = document.querySelector('#jobs-list');
-
-            // Clear any existing content
-            jobsList.innerHTML = '';
-
-            // Populate jobs
-            jobsList.innerHTML = jobs.map(job => `
-                <tr>
-                    <td>${job.title}</td>
-                    <td>${job.description}</td>
-                    <td>${job.schedule}</td>
-                    <td>${job.location}</td>
-                    <td>${job.postDate}</td>
-                    <td>${job.salary}</td>
-                    <td>${job.deadline}</td>
-                    <td>${job.desiredSkills.join(', ')}</td>
-                    <td>${job.industry}</td>
-                    <td>
-                        <a href="/Admin/Jobs/Edit?id=${job.id}">Edit</a>
-                        <a href="/Admin/Jobs/Remove?id=${job.id}">Remove</a>
-                    </td>
-                </tr>
-            `).join('');
-        } else {
-            const error = await response.json();
-            alert(`Failed to load jobs: ${error.message || response.statusText}`);
+        const response = await fetch('http://localhost:3000/jobs');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const jobs = await response.json();
+        const jobsList = document.querySelector('#jobs-list');
+        jobsList.innerHTML = jobs.map(job => `
+            <tr>
+                <td>${job.title}</td>
+                <td>${job.description}</td>
+                <td>${job.schedule}</td>
+                <td>${job.location}</td>
+                <td>${new Date(job.postDate).toLocaleDateString()}</td>
+                <td>${job.salary}</td>
+                <td>${new Date(job.deadline).toLocaleDateString()}</td>
+                <td>${job.desiredSkills.join(', ')}</td>
+                <td>${job.industry}</td>
+                <td>
+                    <a href="/Admin/Jobs/Edit?id=${job._id}">Edit</a>
+                    <a href="/Admin/Jobs/Remove?id=${job._id}">Remove</a>
+                </td>
+            </tr>
+        `).join('');
     } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while loading jobs. Please try again later.');
+        throw error;
     }
 }
-
-document.addEventListener('DOMContentLoaded', loadJobs);
