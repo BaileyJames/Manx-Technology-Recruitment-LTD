@@ -101,6 +101,10 @@
       "PackagePath": "staticwebassets\\js\\Skills\\remove-skill.js"
     },
     {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\application.js",
+      "PackagePath": "staticwebassets\\js\\application.js"
+    },
+    {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
       "PackagePath": "staticwebassets\\js\\job-details.js"
     },

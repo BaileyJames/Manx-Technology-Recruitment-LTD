@@ -78,7 +78,6 @@ function getCookie(name) {
     }
 }
 
-
 function loadProfileFromCookies() {
     const profileData = getCookie("profileData");
     console.log("Loading profile data from cookies:", profileData);
@@ -92,8 +91,6 @@ function loadProfileFromCookies() {
     }
 }
 
-
-// This doesnt work yet
 function uploadDocument(file, fieldName) {
     const authToken = getCookie('authToken');
     console.log(`Auth Token on upload: ${authToken}`); // Debug log
@@ -106,7 +103,7 @@ function uploadDocument(file, fieldName) {
     const formData = new FormData();
     formData.append('document', file);
 
-    console.log(`Uploading ${file.name} to the server...`); // More detailed log
+    console.log(`Uploading ${file.name} to the server...`); 
     fetch('http://localhost:3000/documents', {
         method: 'POST',
         headers: {

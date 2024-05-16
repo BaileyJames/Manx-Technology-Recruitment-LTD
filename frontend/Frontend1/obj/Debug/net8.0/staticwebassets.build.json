@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "inGLh9VoIYLDvrGifqrhIiyXuq7TdWlDxHIQH3gOpYI=",
+  "Hash": "DFsgICIedhIKKCx0JKLW9WUQq6o93Zi8+uvxTFe+rSA=",
   "Source": "Frontend1",
   "BasePath": "_content/Frontend1",
   "Mode": "Default",
@@ -357,6 +357,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\captcha\\9.png"
+    },
+    {
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\application.js",
+      "SourceId": "Frontend1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "BasePath": "_content/Frontend1",
+      "RelativePath": "js/application.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\application.js"
     },
     {
       "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
