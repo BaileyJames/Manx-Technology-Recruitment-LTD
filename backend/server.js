@@ -205,7 +205,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const fileExtension = file.originalname.split(".")[1];
-        cb(null, req.user._id + "." + fileExtension)
+        cb(null, req.user._id + "." + file.originalname)
     }
 })
 
@@ -215,6 +215,7 @@ app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async
     console.log(req.file)
 
     let fileExtension = req.file.originalname.split(".")[1];
+    console.log(req.file)
 
     try {
         await sftp.mkdir("/home/expo/user-documents/" + req.user._id, true)
@@ -223,7 +224,7 @@ app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async
     }
 
     try {
-        await sftpFile("./uploads/" + req.user._id + "." + fileExtension, "/home/expo/user-documents/" + req.user._id + "/" +  req.file.fieldname + "." + fileExtension)
+        await sftpFile("./uploads/" + req.user._id + "." + req.file.originalname, "/home/expo/user-documents/" + req.user._id + "/" + req.file.originalname)
     } catch (err) {
         console.error("Error reading file:", err)
     }
@@ -287,6 +288,13 @@ app.get("/skills", async (req, res) => {
 app.post("/add-job", ensureAdmin, async (req, res) => {
     console.log(req.body)
     const {title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
+
+    desiredSkillsObjectIds = [];
+
+    for(let i = 0; i < desiredSkills.length; i++) {
+        desiredSkillsObjectIds.push(new ObjectId(desiredSkills[i]));
+    }
+
     let collection = await client.db("Recruitment").collection("jobs");
     let addJob = await collection.insertOne({
         title: title,
@@ -296,7 +304,7 @@ app.post("/add-job", ensureAdmin, async (req, res) => {
         salary: salary,
         postDate: postDate,
         deadline: deadline,
-        desiredSkills: desiredSkills,
+        desiredSkills: desiredSkillsObjectIds,
         companyId: new ObjectId(companyId)
     });
     res.send("Successfully added " + title + " to the database.").status(200);
