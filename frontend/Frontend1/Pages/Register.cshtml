@@ -17,7 +17,7 @@ ViewData["Title"] = "Register";
     <h1 class="display-4">Register</h1>
     <form>
         <div class="input-group">
-            <label for="username">Username:</label>
+            <label for="username">Username:  (At least 6 characters)</label>
             <input type="text" id="username" name="username" placeholder="Choose a username">
         </div>
         <div class="input-group">
@@ -25,13 +25,45 @@ ViewData["Title"] = "Register";
             <input type="text" id="email" name="email" placeholder="Enter your email">
         </div>
         <div class="input-group">
+            <button type="button" onclick="randomPassword()">Generate Random Password</button>
+            </div>
+        <div class="input-group">
             <label for="password1">Password:</label>
             <input type="password" id="password1" name="password" placeholder="Create a password">
         </div>
-        <div class="input-group">
+
+            <div class="strength">
+                <div class="power-container">
+                    <div id="power-point"></div>
+                </div>
+            </div>
+
+                <ul class="passwordRequirements red" id="Reqs">
+                    <li class="">
+                        Password Requires:
+                    </li>
+                    <li id="Twelve">
+                        12 Characters
+                    </li>
+                    <li id="UC">
+                        Uppercase Character
+                    </li>
+                    <li id="LC">
+                        Lowercase Character
+                    </li>
+                    <li id="Num">
+                        Number
+                    </li>
+                    <li id="SC">
+                        Special Character
+                    </li>
+                </ul>
+
+            <div class="input-group">
             <label for="password2">Confirm Password:</label>
             <input type="password" id="password2" placeholder="Confirm your password">
         </div>
+
 
             <div class="input-group">
                 <label>Captcha:</label>
@@ -45,49 +77,11 @@ ViewData["Title"] = "Register";
                 }
             </div>
 
-
         <button type="submit">Register</button>
         <div class="links">
             <a href="/login">Already a member? Log In</a>
         </div>
     </form>
-
-    @* <script>
-
-        function validateRegistration(form) {
-            
-
-            const name = form.username.value;
-            const email = form.email.value;
-            const pass1 = form.password1.value;
-            const pass2 = form.password2.value;
-
-            if (!name || !email || !pass1 || !pass2)
-            {
-                alert("Please enter all required details")
-                return false;
-            }
-
-            if (pass1 !== pass2) {
-                alert("Passwords don't match")
-                return false;
-            }
-
-            return true;
-        }
-
-
-        function submitForm() {
-            const form = document.getElementById("registrationForm");
-            if (!validateRegistration(form)) {
-                return;
-            }
-
-            alert('Successfully registered!');
-            form.submit();
-            
-        }
-    </script> *@
     <script src="/js/register.js"></script>
 </div>
 </body>
