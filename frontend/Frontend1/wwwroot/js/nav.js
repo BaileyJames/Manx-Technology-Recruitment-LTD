@@ -15,11 +15,9 @@
         })
         .then(user => {
             const userMenu = document.getElementById('user-menu');
-            const debugInfo = document.getElementById('debug-info');
 
             if (user && user.privilege === 1) {
                 document.getElementById('admin-dashboard').style.display = 'block';
-                debugInfo.innerHTML = `<p>User is authenticated with admin privileges</p><p>User name: ${user.username}</p>`;
                 userMenu.innerHTML = `
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
             `;
