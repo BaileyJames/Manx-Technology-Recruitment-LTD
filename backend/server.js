@@ -195,6 +195,10 @@ app.post("/logout", (req, res, next) => {
     });
 })
 
+app.get("/user", ensureAuthenticated, (req, res) => {
+    res.send(req.user).status(200);
+})
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'uploads')
@@ -393,6 +397,11 @@ app.put("/update-skill", ensureAdmin, async (req, res) => {
             }
         }
     )
+    if (updateSkill.modifiedCount == 1) {
+        res.send("Successfully updated " + name).status(200);
+    } else {
+        res.send("Error updating skill, it either doesn't exist or no changes were created").status(500);
+    }
 })
 
 app.delete("/delete-skill", ensureAdmin, async (req, res) => {
