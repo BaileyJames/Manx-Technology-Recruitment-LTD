@@ -9,7 +9,6 @@
 
     let coverLetterCompleted = false;
     let cvCompleted = false;
-    let otherFilesCompleted = false;
 
     if (useUploadedCVButton) {
         useUploadedCVButton.addEventListener('click', useUploadedCV);
@@ -24,12 +23,11 @@
             if (coverLetterFileInput.files.length > 0) {
                 coverLetterCompleted = true;
                 document.getElementById('coverLetterStatus').innerHTML = 'Cover letter file uploaded.';
-                checkCompletionStatus();
             } else {
                 coverLetterCompleted = false;
                 document.getElementById('coverLetterStatus').innerHTML = '';
-                checkCompletionStatus();
             }
+            checkCompletionStatus();
         });
     }
 
@@ -38,26 +36,11 @@
             if (cvFileInput.files.length > 0) {
                 cvCompleted = true;
                 document.getElementById('cvStatus').innerHTML = 'CV file uploaded.';
-                checkCompletionStatus();
             } else {
                 cvCompleted = false;
                 document.getElementById('cvStatus').innerHTML = '';
-                checkCompletionStatus();
             }
-        });
-    }
-
-    if (otherFilesInput) {
-        otherFilesInput.addEventListener('change', function() {
-            if (otherFilesInput.files.length > 0) {
-                otherFilesCompleted = true;
-                document.getElementById('otherFilesStatus').innerHTML = 'Other files uploaded.';
-                checkCompletionStatus();
-            } else {
-                otherFilesCompleted = false;
-                document.getElementById('otherFilesStatus').innerHTML = '';
-                checkCompletionStatus();
-            }
+            checkCompletionStatus();
         });
     }
 
@@ -69,7 +52,7 @@
         try {
             let response = await fetch('http://localhost:3000/documents', {
                 method: 'GET',
-                credentials: 'include',
+                credentials: 'include' // Include credentials for cookies
             });
             if (response.ok) {
                 let files = await response.json();
@@ -96,13 +79,13 @@
                 }
                 cvCompleted = true;
                 document.getElementById('cvStatus').innerHTML = 'CV file selected.';
-                checkCompletionStatus();
             } else {
                 alert('Invalid selection');
             }
         } else {
             alert('No uploaded CV files found');
         }
+        checkCompletionStatus();
     }
 
     async function selectUploadedFiles() {
@@ -118,9 +101,7 @@
                     } else {
                         document.getElementById('selectUploadedFilesButton').insertAdjacentHTML('afterend', `<p id="fileSelection">You selected: ${selectedFiles.join(', ')}</p>`);
                     }
-                    otherFilesCompleted = true;
                     document.getElementById('otherFilesStatus').innerHTML = 'Other files selected.';
-                    checkCompletionStatus();
                 } else {
                     alert('Invalid selection');
                 }
@@ -134,8 +115,7 @@
 
     function checkCompletionStatus() {
         if ((coverLetterCompleted || coverLetterFileInput.files.length > 0 || document.getElementById('coverLetter').value.trim() !== '') &&
-            (cvCompleted || cvFileInput.files.length > 0) &&
-            (otherFilesCompleted || otherFilesInput.files.length > 0)) {
+            (cvCompleted || cvFileInput.files.length > 0)) {
             applyButton.disabled = false;
         } else {
             applyButton.disabled = true;

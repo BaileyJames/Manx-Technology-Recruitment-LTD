@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DFsgICIedhIKKCx0JKLW9WUQq6o93Zi8+uvxTFe+rSA=",
+  "Hash": "/iOVoRvZ00nq2NMg5HL2x7Uf5LxB6WytaFZ++prj8aU=",
   "Source": "Frontend1",
   "BasePath": "_content/Frontend1",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\index.css",
+      "SourceId": "Frontend1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "BasePath": "_content/Frontend1",
+      "RelativePath": "css/index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
       "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\jobs.css",

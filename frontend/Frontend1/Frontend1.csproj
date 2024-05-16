@@ -8,6 +8,10 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Identity\Pages\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Company\Add.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Company\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Company\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Company\Remove.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
