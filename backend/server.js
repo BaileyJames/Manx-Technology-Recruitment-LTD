@@ -296,7 +296,7 @@ app.post("/add-job", ensureAdmin, async (req, res) => {
         salary: salary,
         postDate: postDate,
         deadline: deadline,
-        desiredSkills: desiredSkills,
+        desiredSkills: new ObjectId(desiredSkills),
         companyId: new ObjectId(companyId)
     });
     res.send("Successfully added " + title + " to the database.").status(200);
