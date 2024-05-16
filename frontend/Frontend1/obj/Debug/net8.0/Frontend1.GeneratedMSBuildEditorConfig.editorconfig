@@ -9,119 +9,119 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Frontend1
 build_property.RootNamespace = Frontend1
-build_property.ProjectDir = C:\Users\olive\RiderProjects\Manx-Technology-Recruitment-LTD\frontend\Frontend1\
+build_property.ProjectDir = C:\Users\thoma\Documents\GitHub\Manx-Technology-Recruitment-LTD\frontend\Frontend1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\olive\RiderProjects\Manx-Technology-Recruitment-LTD\frontend\Frontend1
+build_property.MSBuildProjectDirectory = C:\Users\thoma\Documents\GitHub\Manx-Technology-Recruitment-LTD\frontend\Frontend1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/About Us.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/About Us.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQgVXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/admin-dashboard.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/admin-dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cYWRtaW4tZGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Add.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29tcGFueVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Edit.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29tcGFueVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Index.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29tcGFueVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Remove.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Company/Remove.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29tcGFueVxSZW1vdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Add.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Edit.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Index.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Remove.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Jobs/Remove.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSm9ic1xSZW1vdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Add.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2tpbGxzXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Edit.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2tpbGxzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Index.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2tpbGxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Remove.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Admin/Skills/Remove.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2tpbGxzXFJlbW92ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Error.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Index.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/Job-Apply.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/Job-Apply.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYi1BcHBseS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/JobDetails.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/JobDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYkRldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Jobs.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Jobs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9icy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Login.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Privacy.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Profile.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Register.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/_ViewImports.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/_ViewStart.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Shared/_Layout.cshtml]
+[C:/Users/thoma/Documents/GitHub/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-i93xtn56k7

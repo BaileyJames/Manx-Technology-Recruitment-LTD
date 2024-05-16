@@ -209,6 +209,27 @@ const storage = multer.diskStorage({
     }
 })
 
+app.put("/update-user", ensureAuthenticated, async (req, res) => {
+    const {_id, email, username, firstName, lastName, address, phone} = req.body;
+    let collection = await client.db("Recruitment").collection("users");
+    let updateJob = await collection.updateOne(
+        {_id: new ObjectId(_id)},
+        {
+            $set: {
+                firstName: firstName,
+                lastName: lastName,
+                address: address,
+                phone: phone
+            }
+        }
+    )
+    if (updateJob.modifiedCount == 1) {
+        res.send("Successfully updated " + username).status(200);
+    } else {
+        res.send("Error updating profile, profile either doesn't exist or no changes were created").status(500);
+    }
+})
+
 const uploadFile = multer({storage: storage})
 
 app.post("/documents", ensureAuthenticated, uploadFile.single('document'), async (req, res, next) => {
