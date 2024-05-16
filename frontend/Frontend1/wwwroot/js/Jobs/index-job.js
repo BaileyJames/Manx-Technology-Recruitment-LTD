@@ -22,7 +22,7 @@ async function loadJobs() {
                 <td>${new Date(job.postDate).toLocaleDateString()}</td>
                 <td>${job.salary}</td>
                 <td>${new Date(job.deadline).toLocaleDateString()}</td>
-                 <td>${job.desiredSkills}</td>
+                <td>${job.desiredSkills}</td>
                 <td>${job.industry}</td>
                 <td>
                     <a href="/Admin/Jobs/Edit?id=${job._id}">Edit</a>

@@ -57,7 +57,6 @@ function checkTickBoxes() {
                 }
                 else {
                     skillIds += "+" + skillId;
-
                 }
             } else if (!event.target.checked) {
                 splitIds = skillIds.split('+');
@@ -72,12 +71,14 @@ function checkTickBoxes() {
 
 function submitForm() {
     document.getElementById('SkillIds').value = skillIds;
+    console.log(skillIds)
     getJobs()
 }
 
 function getJobs() {
     let jobsArray = new Array();
     let skillIds = document.getElementById('SkillIds').value
+    console.log("http://localhost:3000/jobs?desiredSkills=" + skillIds)
     fetch("http://localhost:3000/jobs?desiredSkills=" + skillIds, {
         method: 'GET',
         headers: {
