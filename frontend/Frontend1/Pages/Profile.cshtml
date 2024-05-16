@@ -1,19 +1,58 @@
 ﻿@page
-@model Frontend1.Pages.Profile
-
+@model Profile
 @{
-    Layout = null;
+ViewData["Title"] = "Profile";
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+     <link rel="stylesheet" href="~/css/jobs.css"> 
+    <link rel="stylesheet" href="~/css/profile.css">
 </head>
 <body>
-<div>
-    
+<div class="profile-container">
+    <h2>Profile</h2>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+    </div>
+    <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="profilePicture">Upload Profile Picture</label>
+        <input type="file" id="profilePicture" name="profilePicture">
+    </div>
+    <div class="form-group">
+        <label for="cv">Upload Your CV</label>
+        <input type="file" id="cv" name="cv">
+    </div>
+    <div class="form-group">
+        <label for="certificates">Upload Your Certificates</label>
+        <input type="file" id="certificates" name="certificates">
+    </div>
+    <div class="button-container">
+        <button class="save-btn">Save</button>
+        <button class="logout-btn">Logout</button>
+    </div>
 </div>
+<script src="~/js/profile.js"></script>
 </body>
 </html>

@@ -19,6 +19,7 @@
             if (user && user.privilege === 1) {
                 document.getElementById('admin-dashboard').style.display = 'block';
                 userMenu.innerHTML = `
+                <li><a class="dropdown-item" href="/Profile">Profile</a></li>
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
             `;
             } else if (user) {
