@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data.privilege && data.privilege === 1) {
                     // Redirect to admin dashboard if user is an admin
                     alert("Admin logged in successfully!");
-                    window.location.href = '/jobs';
+                    window.location.href = '/index';
                     
                 } else {
                     // Redirect to home page for regular users
