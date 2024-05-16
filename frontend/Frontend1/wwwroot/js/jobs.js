@@ -2,7 +2,7 @@
 let skillIds = ''
 let skillsArray = new Array();
 function on_Load() {
-    
+
     fetch('http://localhost:3000/skills', {
         method: 'GET',
         headers: {
@@ -46,7 +46,7 @@ function createSkillLabels() {
 
 function checkTickBoxes() {
     const checkboxes = document.querySelectorAll('.skill-checkbox');
-    
+
 
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', (event) => {
@@ -142,10 +142,11 @@ function createJobLabels(jobArray) {
         property.appendChild(document.createElement("br"))
         list.appendChild(property)
 
+        console.log("Por")
 
         let button = document.createElement("button")
         button.className = "btn btn-default";
-        button.onclick = function () { location.href = '/' + jobArray[i]._id }
+        button.onclick = function () { location.href = "/Job%20Application/JobDetails?id=" + jobArray[i]._id }
         button.textContent = "More Info"
         list.appendChild(button)
 
