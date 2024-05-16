@@ -86,16 +86,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYi1BcHBseS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/Job_Application.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYl9BcHBsaWNhdGlvbi5jc2h0bWw=
+[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Job Application/JobDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iIEFwcGxpY2F0aW9uXEpvYkRldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Jobs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9icy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/JobsDetails.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9ic0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/olive/RiderProjects/Manx-Technology-Recruitment-LTD/frontend/Frontend1/Pages/Login.cshtml]

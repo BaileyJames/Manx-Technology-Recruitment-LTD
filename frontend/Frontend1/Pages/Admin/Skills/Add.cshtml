@@ -2,18 +2,19 @@
 @model Frontend1.Pages.Skills.Add
 
 @{
-    Layout = null;
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<form>
+    <div class="form-group">
+        <label for="name">Title</label>
+        <input id="name" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Skill</button>
+</form>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+    <script src="~/js/skills/add-skill.js"></script>

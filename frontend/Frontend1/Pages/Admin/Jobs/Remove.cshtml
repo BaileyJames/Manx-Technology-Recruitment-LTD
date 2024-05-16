@@ -5,19 +5,43 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h2>Are you sure you want to delete this job?</h2>
-<div>
-    <h3 id="job-title">@Model.JobTitle</h3>
-    <p id="job-description">@Model.JobDescription</p>
-    <p id="job-schedule">@Model.JobSchedule</p>
-    <p id="job-location">@Model.JobLocation</p>
-    <p id="job-postDate">@Model.JobPostDate</p>
-    <p id="job-salary">@Model.JobSalary</p>
-    <p id="job-deadline">@Model.JobDeadline</p>
-    <p id="job-desiredSkills">@Model.JobDesiredSkills</p>
-    <p id="job-industry">@Model.JobIndustry</p>
-</div>
-<form>
-    <input type="hidden" id="id" value="@Model.JobId" />
+
+<form id="delete-job-form">
+    <div class="form-group">
+        <input type="hidden" id="_id" name="_id" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" name="title" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" readonly></textarea>
+    </div>
+    <div class="form-group">
+        <label for="schedule">Schedule</label>
+        <input id="schedule" name="schedule" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" name="location" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="postDate">Post Date</label>
+        <input id="postDate" name="postDate" type="date" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input id="deadline" name="deadline" type="date" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <input type="hidden" id="desiredSkills" name="desiredSkills" class="form-control" />
+    </div>
+
     <button type="submit" class="btn btn-danger">Delete</button>
     <a href="/Admin/Jobs/Index" class="btn btn-secondary">Cancel</a>
 </form>

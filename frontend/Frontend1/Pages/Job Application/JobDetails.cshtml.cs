@@ -2,7 +2,7 @@
 
 namespace Frontend1.Pages;
 
-public class JobsDetails : PageModel
+public class JobDetails : PageModel
 {
     public void OnGet()
     {

@@ -11,55 +11,35 @@ function getJobIdFromUrl() {
 
 async function loadJobDetails(id) {
     try {
-        const response = await fetch(`/api/jobs/${id}`); 
+        const response = await fetch(`http://localhost:3000/jobs`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const job = await response.json();
-        document.getElementById('job-title').textContent = job.title;
-    } catch (error) {
-        console.error('Failed to load job details:', error);
-    }
-}
+        const jobDetails = Array.isArray(job) ? job[0] : job;
 
-function useUploadedCV() {
-    alert("Function to use uploaded CV goes here.");
-}
-
-function selectUploadedFiles() {
-    alert("Function to select uploaded files goes here.");
-}
-
-async function handleFormSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(document.getElementById('application-form'));
-    const coverLetterText = document.getElementById('coverLetter').value;
-    const coverLetterFile = document.getElementById('coverLetterFile').files[0];
-    const cvFile = document.getElementById('cvFile').files[0];
-    const otherFiles = document.getElementById('otherFiles').files;
-
-    formData.append('CoverLetterText', coverLetterText);
-    if (coverLetterFile) formData.append('CoverLetterFile', coverLetterFile);
-    if (cvFile) formData.append('CVFile', cvFile);
-    for (let file of otherFiles) {
-        formData.append('OtherFiles', file);
-    }
-
-    try {
-        const response = await fetch('/api/applications', {  
-            method: 'POST',
-            body: formData
+        document.getElementById('job-title').textContent = jobDetails.title.trim();
+        document.getElementById('job-description').textContent = jobDetails.description.trim();
+        document.getElementById('job-salary').textContent = `Salary: ${jobDetails.salary.trim()}`;
+        document.getElementById('job-working-hours').textContent = `Working Hours: ${jobDetails.schedule.trim()}`;
+        document.getElementById('job-location').textContent = `Location: ${jobDetails.location.trim()}`;
+        document.getElementById('job-post-date').textContent = `Post Date: ${jobDetails.postDate.trim()}`;
+        document.getElementById('job-deadline').textContent = `Deadline: ${jobDetails.deadline.trim()}`;
+        
+        const jobRequirements = document.getElementById('job-requirements');
+        jobRequirements.innerHTML = '';
+        jobDetails.desiredSkills.forEach(skill => {
+            const li = document.createElement('li');
+            li.textContent = skill;
+            jobRequirements.appendChild(li);
         });
 
-        if (response.ok) {
-            alert('Application submitted successfully!');
-            window.location.href = '/Jobs/Index';
-        } else {
-            alert('Failed to submit application.');
-        }
+        // apply button
+        document.getElementById('apply-button').onclick = function() {
+            location.href = `/jobs/apply/${jobDetails._id}`;
+        };
+
     } catch (error) {
-        console.error('Failed to submit application:', error);
-        alert('Failed to submit application.');
+        console.error('Failed to load job details:', error);
     }
 }

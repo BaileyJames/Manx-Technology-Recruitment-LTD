@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
     {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\jobs.css",
+      "PackagePath": "staticwebassets\\css\\jobs.css"
+    },
+    {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -75,6 +79,22 @@
     {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\Jobs\\remove-job.js",
       "PackagePath": "staticwebassets\\js\\Jobs\\remove-job.js"
+    },
+    {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\Skills\\add-skill.js",
+      "PackagePath": "staticwebassets\\js\\Skills\\add-skill.js"
+    },
+    {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\Skills\\edit-skill.js",
+      "PackagePath": "staticwebassets\\js\\Skills\\edit-skill.js"
+    },
+    {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\Skills\\index-skill.js",
+      "PackagePath": "staticwebassets\\js\\Skills\\index-skill.js"
+    },
+    {
+      "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\Skills\\remove-skill.js",
+      "PackagePath": "staticwebassets\\js\\Skills\\remove-skill.js"
     },
     {
       "Id": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
