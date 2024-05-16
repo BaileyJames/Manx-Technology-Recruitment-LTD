@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BN68GDPWmjd6UKrFCle15baCzfA7hh7ozOKc8602PYg=",
+  "Hash": "DFsgICIedhIKKCx0JKLW9WUQq6o93Zi8+uvxTFe+rSA=",
   "Source": "Frontend1",
   "BasePath": "_content/Frontend1",
   "Mode": "Default",
@@ -359,12 +359,12 @@
       "OriginalItemSpec": "wwwroot\\images\\captcha\\9.png"
     },
     {
-      "Identity": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\admin.js",
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\application.js",
       "SourceId": "Frontend1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
       "BasePath": "_content/Frontend1",
-      "RelativePath": "js/admin.js",
+      "RelativePath": "js/application.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -375,13 +375,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\admin.js"
+      "OriginalItemSpec": "wwwroot\\js\\application.js"
     },
     {
-      "Identity": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
+      "Identity": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\js\\job-details.js",
       "SourceId": "Frontend1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\thoma\\Documents\\GitHub\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\olive\\RiderProjects\\Manx-Technology-Recruitment-LTD\\frontend\\Frontend1\\wwwroot\\",
       "BasePath": "_content/Frontend1",
       "RelativePath": "js/job-details.js",
       "AssetKind": "All",
