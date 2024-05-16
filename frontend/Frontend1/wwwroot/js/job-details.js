@@ -1,17 +1,23 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿let jobId
+document.addEventListener('DOMContentLoaded', function () {
     const jobId = getJobIdFromUrl();
     loadJobDetails(jobId);
     document.getElementById('application-form').addEventListener('submit', handleFormSubmit);
 });
 
 function getJobIdFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
+    const searchParams = new URLSearchParams(window.location.search);
+    for (const param of searchParams) {
+        jobId = param[1]
+    }
+    console.log("skillId = " + jobId)
+    return jobId
 }
 
 async function loadJobDetails(id) {
     try {
-        const response = await fetch(`http://localhost:3000/jobs`);
+        console.log(id)
+        const response = await fetch('http://localhost:3000/jobs?_id=' + id);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -34,12 +40,11 @@ async function loadJobDetails(id) {
             jobRequirements.appendChild(li);
         });
 
-        // apply button
-        document.getElementById('apply-button').onclick = function() {
-            location.href = `/jobs/apply/${jobDetails._id}`;
-        };
-
     } catch (error) {
         console.error('Failed to load job details:', error);
     }
+}
+
+function apply() {
+    location.href = "/Job%20Application/Job-Apply?=" + jobId
 }
