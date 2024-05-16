@@ -287,6 +287,13 @@ app.get("/skills", async (req, res) => {
 app.post("/add-job", ensureAdmin, async (req, res) => {
     console.log(req.body)
     const {title, description, schedule, location, salary, postDate, deadline, desiredSkills, companyId} = req.body;
+
+    desiredSkillsObjectIds = [];
+
+    for(let i = 0; i < desiredSkills.length; i++) {
+        desiredSkillsObjectIds.push(new ObjectId(desiredSkills[i]));
+    }
+
     let collection = await client.db("Recruitment").collection("jobs");
     let addJob = await collection.insertOne({
         title: title,
@@ -296,7 +303,7 @@ app.post("/add-job", ensureAdmin, async (req, res) => {
         salary: salary,
         postDate: postDate,
         deadline: deadline,
-        desiredSkills: new ObjectId(desiredSkills),
+        desiredSkills: desiredSkillsObjectIds,
         companyId: new ObjectId(companyId)
     });
     res.send("Successfully added " + title + " to the database.").status(200);
