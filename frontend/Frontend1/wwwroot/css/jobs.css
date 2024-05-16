@@ -1,0 +1,108 @@
+﻿/* jobs.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #343A40;
+}
+
+#skillLabels {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#jobLabels {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+}
+
+#jobLabels li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+#jobLabels strong {
+    font-size: 1.5em;
+    color: #1B4965;
+}
+
+#jobLabels span {
+    display: block;
+    margin-top: 10px;
+}
+
+#jobLabels .salary {
+    color: #1B4965;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-default {
+    background-color: #1B4965;
+    color: #fff;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 22px);
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label {
+    margin-right: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-box input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-box button {
+    padding: 10px 15px;
+    background-color: #1B4965;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}

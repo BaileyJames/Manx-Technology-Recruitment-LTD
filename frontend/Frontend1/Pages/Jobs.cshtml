@@ -1,29 +1,26 @@
 ﻿@page
 @model Frontend1.Pages.Jobs
 @{
-    Layout = "~/Pages/Shared/_Layout.cshtml";
+Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html>
 <head>
     <title>Skill Checkboxes</title>
+    <link rel="stylesheet" href="~/css/jobs.css" />
 </head>
 <body onload="on_Load()">
-    <h1>Skill Filter</h1>
+<h1>Skill Filter</h1>
 
-    <div id="skillLabels">
+<div id="skillLabels"></div>
 
-    </div>
+<div class="search-box">
+    <input type="hidden" id="SkillIds" name="SkillIds" value="" />
+    <button class="btn btn-default" onclick="submitForm()">Search</button>
+</div>
 
-        <div>
-            <input type="hidden" id="SkillIds" name="SkillIds" value="" />
-            <button class="btn btn-default" onclick="submitForm()">Search</button>
-        </div>
+<div id="jobLabels"></div>
 
-    <div id="jobLabels">
-
-    </div>
-
-    <script src="~/js/jobs.js"></script>
+<script src="~/js/jobs.js"></script>
 </body>
 </html>
