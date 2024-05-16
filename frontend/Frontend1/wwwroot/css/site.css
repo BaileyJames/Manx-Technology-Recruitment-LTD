@@ -15,24 +15,33 @@ a:hover {
 html {
   position: relative;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: #F8F0E5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .navbar {
   font-family: "KG Blank Space Solid", sans-serif;
 }
 
-
-/* Base body styling */
+/* General body styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #CAE9FF;
-  justify-content: safe;
-  align-items: center;
 }
 
 /* Styling for the login container */
@@ -46,15 +55,14 @@ body {
   margin: 0 auto;
 }
 
-
 /* General styling for text inputs */
 input[type="text"], input[type="password"] {
   width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #1B4965; 
+  border: 1px solid #1B4965;
   border-radius: 5px;
-  color: #343A40; 
+  color: #343A40;
 }
 
 /* Styling for the login button */
@@ -63,13 +71,13 @@ button {
   padding: 10px;
   border-radius: 20px;
   border: none;
-  background-color: #343A40; 
-  color: #CAE9FF; 
+  background-color: #343A40;
+  color: #CAE9FF;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #1B4965; 
+  background-color: #1B4965;
 }
 
 /* Links styling */
@@ -80,40 +88,35 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #343A40; 
+  color: #343A40;
 }
 
-/* Styling for show password link (need to fix) */
+/* Styling for show password link */
 .show-password {
   float: right;
   font-size: small;
-  color: #343A40; 
+  color: #343A40;
 }
 
-
-
 html, body {
-  height: 100%; 
+  height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
-body > .container {
-  flex-grow: 1; 
+.container {
   display: flex;
-  flex-direction: column; 
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-
-footer {
-  width: 100%; 
-  position: absolute; 
-  bottom: 0;
-  background-color: #fff; 
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); 
+header, footer {
+  background-color: #343A40;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }
 
 
@@ -128,21 +131,11 @@ footer a {
 }
 
 .dropdown-menu {
-  right: 0;  /* Align dropdown to the right side */
-  left: auto;  /* Ensures dropdown alignment is right-side */
-}
-/* ------------------------------------------------------------------------ */
-/* Register Styles */
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
+  right: 0;  
+  left: auto;  
 }
 
+/* Register Styles */
 .register-container {
   background-color: #ffffff;
   border: 2px solid #1B4965;
@@ -190,42 +183,34 @@ button:hover {
 .links a:hover {
   text-decoration: underline;
 }
-/* ------------------------------------------------------------------------ */
-/* Index Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* Light background for the whole page */
-  color: #333; /* Default text color */
-}
 
+/* Index Styles */
 .header {
-  background-image: url('images/background.jpeg'); /* Add the background image */
+  background-image: url('images/background.jpeg'); 
   background-size: cover;
   background-position: center;
-  height: 300px; /* Adjust the height as needed */
+  height: 300px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Ensure positioning for title-box */
+  position: relative; 
 }
 
 .title-box {
   text-align: center;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background: rgba(0, 0, 0, 0.5); 
   padding: 20px;
   border-radius: 10px;
-  position: absolute; /* Position title-box in the center of the header */
+  position: absolute; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 h1 {
-  margin: 0;
-  font-size: 2.5em; /* Larger font size for the title */
+  font-size: 2em;
+  margin-bottom: 20px;
   color: #ffffff; /* White color for better visibility */
 }
 
@@ -262,7 +247,7 @@ p {
   font-size: 24px;
 }
 
-/* Specific colors for each button, adjust as needed based on your palette */
+
 .navigation .nav-link:nth-child(1) {
   background-color: #62B6CB; /* Light blue */
 }
@@ -275,5 +260,5 @@ p {
   background-color: #CAE9FF; /* Lightest blue */
 }
 
-/* ------------------------------------------------------------------------ */
+
 

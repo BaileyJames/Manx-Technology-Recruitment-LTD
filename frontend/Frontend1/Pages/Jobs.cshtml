@@ -6,20 +6,24 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skill Checkboxes</title>
+    <title>Job Listings</title>
     <link rel="stylesheet" href="~/css/jobs.css" />
 </head>
 <body onload="on_Load()">
-<h1>Skill Filter</h1>
 
-<div id="skillLabels"></div>
+<main>
+    <h1>Skill Filter</h1>
 
-<div class="search-box">
-    <input type="hidden" id="SkillIds" name="SkillIds" value="" />
-    <button class="btn btn-default" onclick="submitForm()">Search</button>
-</div>
+    <div id="skillLabels"></div>
 
-<div id="jobLabels"></div>
-    <script src="js/jobs.js" defer></script>
+    <div class="search-box">
+        <input type="hidden" id="SkillIds" name="SkillIds" value="" />
+        <button class="btn btn-default" onclick="submitForm()">Search</button>
+    </div>
+
+    <div id="jobLabels"></div>
+</main>
+
+<script src="~/js/jobs.js"></script>
 </body>
 </html>

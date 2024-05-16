@@ -1,10 +1,28 @@
-﻿/* jobs.css */
+﻿/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
     background-color: #f9f9f9;
+    flex: 1;
+}
+
+header, footer {
+    background-color: #343A40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
 }
 
 h1 {
@@ -13,21 +31,24 @@ h1 {
     color: #343A40;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 #skillLabels {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-    width: 25%;
-    display: inline-block;
-    vertical-align: top;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #jobLabels {
-    display: inline-block;
-    width: 70%;
-    vertical-align: top;
+    width: 100%;
 }
 
 #jobLabels li {
@@ -105,4 +126,36 @@ label {
     border-radius: 4px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    background-color: #343A40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiveness */
+@media (min-width: 600px) {
+    #skillLabels {
+        width: 25%;
+    }
+
+    #jobLabels {
+        width: 70%;
+    }
+}
+
+@media (max-width: 599px) {
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
 }
