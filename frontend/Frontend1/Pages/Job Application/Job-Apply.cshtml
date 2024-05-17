@@ -11,38 +11,39 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details</title>
-    <link rel="stylesheet" href="~/css/jobs.css">
+    <link rel="stylesheet" href="~/css/jobs.css" />
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 id="job-title"></h1>
+    <h1 id="job-title" class="job-title-style">Job Title</h1>
 
-    <h2>Apply for this job</h2>
+    <h2 id="job-title" class="job-title-style"> Apply for this job</h2>
     <form id="application-form" action="/dummy-endpoint" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="coverLetter">Cover Letter</label>
+            <label for="coverLetter" class="job-title-style">Cover Letter</label>
             <textarea id="coverLetter" name="CoverLetter" class="form-control" placeholder="Enter your text here"></textarea>
-            <div class="mt-2">OR</div>
+            <div class="mt-2" class="job-title-style">OR</div>
             <input type="file" id="coverLetterFile" name="CoverLetterFile" class="form-control mt-2" />
         </div>
         <div id="coverLetterStatus"></div>
 
         <div class="form-group mt-4">
-            <label for="cv">CV</label>
+            <label for="cv" class="job-title-style">CV</label>
             <div class="mt-2">
                 <button type="button" class="btn btn-outline-primary" id="useUploadedCVButton">Use Uploaded CV</button>
             </div>
-            <div class="mt-2">OR</div>
+            <div class="mt-2" class="job-title-style">OR</div>
             <input type="file" id="cvFile" name="CVFile" class="form-control mt-2" />
         </div>
         <div id="cvStatus"></div>
 
         <div class="form-group mt-4">
-            <label for="otherFiles">Other Files</label>
+            <label for="otherFiles" class="job-title-style">Other Files</label>
             <div class="mt-2">
                 <button type="button" class="btn btn-outline-primary" id="selectUploadedFilesButton">Select uploaded files</button>
             </div>
-            <div class="mt-2">OR</div>
+            <div class="mt-2" class="job-title-style">OR</div>
             <input type="file" id="otherFiles" name="OtherFiles" class="form-control mt-2" multiple />
         </div>
         <div id="otherFilesStatus"></div>

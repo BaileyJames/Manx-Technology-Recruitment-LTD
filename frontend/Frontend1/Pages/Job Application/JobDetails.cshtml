@@ -11,29 +11,28 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details</title>
-    <link rel="stylesheet" href="~/css/jobs.css">
+    <link rel="stylesheet" href="~/css/jobs.css" />
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 id="job-title"></h1>
+    <h1 id="job-title" class="job-title-style">Job Title</h1>
     <div class="job-description">
-        <h2>Description</h2>
-        <p id="job-description"></p>
+        <h2 id="job-title" class="job-title-style">Description</h2>
+        <p id="job-description" class="job-title-style"></p>
     </div>
     <div class="job-requirements">
-        <h2>Requirements</h2>
+        <h2 id="job-title" class="job-title-style">Requirements</h2>
         <ul id="job-requirements"></ul>
     </div>
     <div class="job-info">
-        <h2>Salary & Information</h2>
-        <p id="job-salary"></p>
-        <p id="job-working-hours"></p>
-        <p id="job-location"></p>
+        <h2 id="job-title" class="job-title-style">Salary & Information</h2>
+        <p id="job-salary" class="job-title-style"></p>
+        <p id="job-working-hours" class="job-title-style"></p>
+        <p id="job-location" class="job-title-style"></p>
     </div>
     <div class="job-actions">
         <button id="apply-button" onclick="apply()">Apply</button>
-        <button>Request More Info</button>
-        <button>Save for Later</button>
     </div>
 </div>
 
