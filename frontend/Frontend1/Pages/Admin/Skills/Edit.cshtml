@@ -1,27 +1,24 @@
 ﻿@page
 @model Frontend1.Pages.Skills.Edit
 
-
-
-
-
 @{
 Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 <script src="~/js/admin.js"></script>
-<form id="update-skill-form">
+<link rel="stylesheet" href="~/css/admin.css" />
+<form id="update-skill-form" style="color: #000; background-color: #fff; padding: 20px; border: 1px solid #000;">
     <div class="form-group">
         <input type="hidden" id="_id" name="_id" />
     </div>
     <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" name="name" class="form-control" />
+        <input id="name" name="name" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control"></textarea>
+        <textarea id="description" name="description" class="form-control" style="color: #000; border: 1px solid #000;"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #000; border: none; color: #fff;">Save Changes</button>
 </form>
 <p id="response-message"></p>
 

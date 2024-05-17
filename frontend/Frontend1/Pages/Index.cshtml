@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-ViewData["Title"] = "Home page";
+    ViewData["Title"] = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -15,24 +15,27 @@ ViewData["Title"] = "Home page";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <h1>Manx Technology Recruitment</h1>
-        </div>
-    </nav>
-</header>
+<div class="wrapper">
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Manx Technology Recruitment</h1>
+            </div>
+        </nav>
+    </header>
 
-<main>
-    <div class="title-box">
-        <h1>Transform lives and businesses through a tailored recruitment experience.</h1>
-        <div class="button-group">
-            <a href="#" class="btn btn-primary"><i class="fas fa-bell"></i> Sign up for Alerts!</a>
-            <a href="#" class="btn btn-primary"><i class="fas fa-briefcase"></i> Jobs</a>
-            <a href="#" class="btn btn-primary"><i class="fas fa-home"></i> Why the Island?</a>
+    <main>
+        <div class="title-box">
+            <h1>Transform lives and businesses through a tailored recruitment experience.</h1>
+            <div class="button-group">
+                <a href="/About Us" class="btn btn-primary"><i class="fas fa-bell"></i> Why Us?</a>
+                <a href="/Jobs" class="btn btn-primary"><i class="fas fa-briefcase"></i> Jobs</a>
+                <a href="/IOM" class="btn btn-primary"><i class="fas fa-home"></i> Why the Island?</a>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+    
+</div>
 
 </body>
 </html>

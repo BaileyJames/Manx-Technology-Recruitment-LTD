@@ -1,0 +1,71 @@
+﻿body.admin-jobs-page-body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.admin-jobs-page .container {
+    margin-top: 5rem;
+}
+
+.admin-jobs-page main {
+    padding: 1rem;
+}
+
+.admin-jobs-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.admin-jobs-page .btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.admin-jobs-page .btn-primary:hover {
+    background-color: #333;
+}
+
+.admin-jobs-page .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #000;
+    border-collapse: collapse;
+}
+
+.admin-jobs-page .table th,
+.admin-jobs-page .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #000;
+}
+
+.admin-jobs-page .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #000;
+}
+
+.admin-jobs-page .d-flex {
+    display: flex !important;
+}
+
+.admin-jobs-page .justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.admin-jobs-page .mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.navbar-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 20px;
+}

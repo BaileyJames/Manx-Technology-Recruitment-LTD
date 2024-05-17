@@ -2,19 +2,20 @@
 @model Frontend1.Pages.Skills.Add
 
 @{
-    Layout = "~/Pages/Shared/_Layout.cshtml";
+Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 <script src="~/js/admin.js"></script>
-<form>
+<link rel="stylesheet" href="~/css/admin.css" />
+<form style="color: #000; background-color: #fff; padding: 20px; border: 1px solid #000;">
     <div class="form-group">
         <label for="name">Title</label>
-        <input id="name" name="name" class="form-control" />
+        <input id="name" name="name" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control"></textarea>
+        <textarea id="description" name="description" class="form-control" style="color: #000; border: 1px solid #000;"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Add Skill</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #000; border: none; color: #fff;">Add Skill</button>
 </form>
 
-    <script src="~/js/skills/add-skill.js"></script>
+<script src="~/js/skills/add-skill.js"></script>

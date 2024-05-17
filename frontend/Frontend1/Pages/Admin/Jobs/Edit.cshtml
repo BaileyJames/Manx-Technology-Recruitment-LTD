@@ -4,42 +4,43 @@
 Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 <script src="~/js/admin.js"></script>
-<form id="update-job-form">
+<link rel="stylesheet" href="~/css/admin.css" />
+<form id="update-job-form" style="color: #000; background-color: #fff; padding: 20px; border: 1px solid #000;">
     <div class="form-group">
         <input type="hidden" id="_id" name="_id" />
     </div>
     <div class="form-group">
         <label for="title">Title</label>
-        <input id="title" name="title" class="form-control" />
+        <input id="title" name="title" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control"></textarea>
+        <textarea id="description" name="description" class="form-control" style="color: #000; border: 1px solid #000;"></textarea>
     </div>
     <div class="form-group">
         <label for="schedule">Schedule</label>
-        <input id="schedule" name="schedule" class="form-control" />
+        <input id="schedule" name="schedule" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="location">Location</label>
-        <input id="location" name="location" class="form-control" />
+        <input id="location" name="location" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="postDate">Post Date</label>
-        <input id="postDate" name="postDate" type="date" class="form-control" />
+        <input id="postDate" name="postDate" type="date" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="salary">Salary</label>
-        <input id="salary" name="salary" class="form-control" />
+        <input id="salary" name="salary" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <label for="deadline">Deadline</label>
-        <input id="deadline" name="deadline" type="date" class="form-control" />
+        <input id="deadline" name="deadline" type="date" class="form-control" style="color: #000; border: 1px solid #000;" />
     </div>
     <div class="form-group">
         <input type="hidden" id="desiredSkills" name="desiredSkills" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #000; border: none; color: #fff;">Save Changes</button>
 </form>
 <p id="response-message"></p>
 

@@ -8,20 +8,23 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
 <head>
     <title>Job Listings</title>
     <link rel="stylesheet" href="~/css/jobs.css" />
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body onload="on_Load()">
-
 <main>
-    <h1>Skill Filter</h1>
-
-    <div id="skillLabels"></div>
-
-    <div class="search-box">
-        <input type="hidden" id="SkillIds" name="SkillIds" value="" />
-        <button class="btn btn-default" onclick="submitForm()">Search</button>
+    <div class="container">
+        <div id="skillLabels">
+            <h1>Skill Filter</h1>
+            <!-- Skill checkboxes will be populated here -->
+            <div class="search-box">
+                <input type="hidden" id="SkillIds" name="SkillIds" value="" />
+                <button class="btn btn-default" onclick="submitForm()">Search</button>
+            </div>
+        </div>
+        <div id="jobLabels">
+            <!-- Job listings will be populated here -->
+        </div>
     </div>
-
-    <div id="jobLabels"></div>
 </main>
 
 <script src="~/js/jobs.js"></script>

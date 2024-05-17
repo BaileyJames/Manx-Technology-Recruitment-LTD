@@ -3,9 +3,16 @@
 @{
 Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-<script src="~/js/admin.js"></script>
-<link rel="stylesheet" href="~/css/jobs.css">
-<div class="container mt-5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Jobs</title>
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body class="admin-jobs-page-body">
+<div class="admin-jobs-page container mt-5">
     <main>
         <h1>Manage Jobs</h1>
         <div class="d-flex justify-content-end mb-3">
@@ -32,5 +39,7 @@ Layout = "~/Pages/Shared/_Layout.cshtml";
     </main>
 </div>
 
+<script src="~/js/admin.js"></script>
 <script src="~/js/jobs/index-job.js"></script>
-
+</body>
+</html>
